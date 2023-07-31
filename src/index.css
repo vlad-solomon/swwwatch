@@ -3,6 +3,7 @@
 :root {
 	font-family: "Inter", sans-serif;
 	line-height: 1.5;
+	font-size: var(--fs-r);
 	font-weight: 400;
 	background-color: var(--gray-600);
 	color: var(--white);
@@ -26,6 +27,14 @@
 	--gray-600: #292c39;
 	--gray-500: #41455a;
 	--gray-400: #555b77;
+
+    --border-radius: 5px;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
 }
 
 body {
