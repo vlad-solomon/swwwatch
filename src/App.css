@@ -2,11 +2,12 @@
 	width: 100%;
 }
 
-.app{
-    height: 100vh;
-    outline: 1px solid red;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.app {
+	position: relative;
+	height: 100vh;
+	outline: 1px solid red;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }

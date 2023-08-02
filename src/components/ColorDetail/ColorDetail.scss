@@ -1,0 +1,47 @@
+//todo ".mock-button" rule this after mock up is done
+.mock-button {
+	aspect-ratio: 1;
+	background: var(--gray-400);
+	border-radius: var(--border-radius);
+}
+
+.color-detail {
+	font-weight: var(--fw-semibold);
+	& > * {
+		height: 100%;
+	}
+	&__wrapper {
+		height: 35px;
+		display: flex;
+		gap: 10px;
+	}
+
+	display: flex;
+	flex: 1;
+	border-radius: var(--border-radius);
+	overflow: hidden;
+
+	&__type,
+	&__values {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-transform: uppercase;
+	}
+
+	&__type {
+		width: 60px;
+		background-color: var(--gray-600);
+	}
+	&__values {
+		flex: 1;
+		background-color: var(--gray-400);
+		span {
+			text-align: center;
+			flex: 1;
+			&:not(:last-of-type) {
+				border-right: 2px solid rgba(255, 255, 255, 0.1);
+			}
+		}
+	}
+}

@@ -23,18 +23,19 @@
 	--fw-regular: 400;
 	--fw-semibold: 600;
 
+	--white-text: rgba(255, 255, 255, 0.8);
 	--white: #fff;
 	--gray-600: #292c39;
 	--gray-500: #41455a;
 	--gray-400: #555b77;
 
-    --border-radius: 5px;
+	--border-radius: 5px;
 }
 
 *,
 *::before,
-*::after{
-    box-sizing: border-box;
+*::after {
+	box-sizing: border-box;
 }
 
 body {
