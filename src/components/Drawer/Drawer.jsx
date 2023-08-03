@@ -2,7 +2,7 @@ import "./Drawer.scss"
 
 function Drawer({ children, modifier }) {
     return (
-        <div className={`drawer drawer--${modifier}`}>{children}</div>
+        <div className={`drawer ${modifier ? `drawer--${modifier}` : ""}`}>{children}</div>
     )
 }
 

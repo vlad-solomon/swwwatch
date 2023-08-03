@@ -18,8 +18,6 @@ export default function CurrentColorDrawer() {
         [mockColorDetails.hsl[0], mockColorDetails.hsl[1], Math.min(mockColorDetails.hsl[2] + 20, 100)],
     ]
 
-    console.log(mockHSLValues)
-
     return (
         <Drawer modifier="current-color">
             <div className="color-shades">{mockHSLValues.map((color, index) => <div className="color-shades__shade" key={index} style={{ backgroundColor: `hsl(${color[0]}, ${color[1]}%, ${color[2]}%)` }}></div>)}</div>
