@@ -13,11 +13,12 @@ const drawers = {
 function Nav() {
     const selectedDrawer = useStore((state) => state.selectedDrawer)
     const setSelectedDrawer = useStore((state) => state.setSelectedDrawer)
+
     return (
         <div className={`nav ${selectedDrawer !== "closed" ? "nav--drawer-open" : ""}`}>
             {Object.entries(drawers).map(([drawer, Icon]) =>
                 <Icon
-                    onClick={() => setSelectedDrawer(drawer)}
+                    onClick={() => setSelectedDrawer(drawer === selectedDrawer ? "closed" : drawer)}
                     fill={selectedDrawer === drawer ? "white" : "transparent"}
                 />
             )}

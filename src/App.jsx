@@ -6,6 +6,7 @@ import Image from "./components/Image/Image"
 import Nav from "./components/Nav/Nav";
 
 import { useStore } from "./stores/useStore";
+import Overlay from "./components/Overlay/Overlay";
 
 const drawers = {
     current: CurrentColorDrawer,
@@ -23,6 +24,7 @@ function App() {
                 {selectedDrawer !== "closed" ? <SelectedDrawer /> : ""}
                 <Image />
                 <Nav />
+                {selectedDrawer !== "closed" ? <Overlay /> : ""}
             </div>
             {/* //todo footer component comes here */}
         </>)
