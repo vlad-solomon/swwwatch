@@ -6,7 +6,7 @@ import { useStore } from "../../stores/useStore"
 
 const states = [
     {
-        state: "color",
+        state: "current",
         icon: Color,
     },
     {

@@ -1,4 +1,6 @@
 .drawer--current-color {
+	display: flex;
+	flex-direction: column;
 	.color-shades {
 		height: 60px;
 		display: flex;

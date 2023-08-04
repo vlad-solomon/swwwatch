@@ -5,13 +5,22 @@ import FavoriteColorsDrawer from "./components/FavoriteColorsDrawer/FavoriteColo
 import Image from "./components/Image/Image"
 import Nav from "./components/Nav/Nav";
 
+import { useStore } from "./stores/useStore";
+
+const drawers = {
+    current: CurrentColorDrawer,
+    favorite: FavoriteColorsDrawer,
+    previous: PreviousColorsDrawer,
+}
+
 function App() {
+    const drawer = useStore((state) => state.drawer)
+    const SelectedDrawer = drawers[drawer]
+
     return (
         <>
             <div className="app">
-                {/* <CurrentColorDrawer /> */}
-                {/* <PreviousColorsDrawer /> */}
-                {/* <FavoriteColorsDrawer /> */}
+                {drawer !== "closed" ? <SelectedDrawer /> : ""}
                 <Image />
                 <Nav />
             </div>

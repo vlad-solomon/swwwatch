@@ -5,7 +5,7 @@ function ColorDetail({ type, values }) {
         <div className="color-detail__wrapper">
             <div className="color-detail">
                 <div className="color-detail__type">{type}</div>
-                <div className="color-detail__values">{values.map((value, index) => <span key={index}>{value}</span>)}</div>
+                <div className="color-detail__values">{Array.isArray(values) ? values.map((value, index) => <span key={index}>{value}</span>) : <span>{values}</span>}</div>
             </div>
             <div className="mock-button">C</div>
         </div>
