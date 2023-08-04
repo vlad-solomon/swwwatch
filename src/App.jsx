@@ -14,13 +14,13 @@ const drawers = {
 }
 
 function App() {
-    const drawer = useStore((state) => state.drawer)
-    const SelectedDrawer = drawers[drawer]
+    const selectedDrawer = useStore((state) => state.selectedDrawer)
+    const SelectedDrawer = drawers[selectedDrawer]
 
     return (
         <>
             <div className="app">
-                {drawer !== "closed" ? <SelectedDrawer /> : ""}
+                {selectedDrawer !== "closed" ? <SelectedDrawer /> : ""}
                 <Image />
                 <Nav />
             </div>

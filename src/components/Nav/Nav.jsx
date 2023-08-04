@@ -1,29 +1,26 @@
 import "./Nav.scss"
-import Color from "./color.svg"
-import Favorite from "./favorite.svg"
-import Previous from "./previous.svg"
+import { ReactComponent as Color } from "./color.svg"
+import { ReactComponent as Favorite } from "./favorite.svg"
+import { ReactComponent as Previous } from "./previous.svg"
 import { useStore } from "../../stores/useStore"
 
-const states = [
-    {
-        state: "current",
-        icon: Color,
-    },
-    {
-        state: "favorite",
-        icon: Favorite,
-    },
-    {
-        state: "previous",
-        icon: Previous
-    },
-]
+const drawers = {
+    current: Color,
+    favorite: Favorite,
+    previous: Previous,
+}
 
 function Nav() {
-    const setDrawer = useStore((state) => state.setDrawer)
+    const selectedDrawer = useStore((state) => state.selectedDrawer)
+    const setSelectedDrawer = useStore((state) => state.setSelectedDrawer)
     return (
-        <div className="nav">
-            {states.map(({ state, icon }, index) => <img onClick={() => setDrawer(state)} src={icon} alt={state} key={index} />)}
+        <div className={`nav ${selectedDrawer !== "closed" ? "nav--drawer-open" : ""}`}>
+            {Object.entries(drawers).map(([drawer, Icon]) =>
+                <Icon
+                    onClick={() => setSelectedDrawer(drawer)}
+                    fill={selectedDrawer === drawer ? "white" : "transparent"}
+                />
+            )}
         </div>
     )
 }
