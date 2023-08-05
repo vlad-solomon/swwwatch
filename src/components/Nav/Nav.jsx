@@ -18,6 +18,7 @@ function Nav() {
         <div className={`nav ${selectedDrawer !== "closed" ? "nav--drawer-open" : ""}`}>
             {Object.entries(drawers).map(([drawer, Icon]) =>
                 <Icon
+                    key={drawer}
                     onClick={() => setSelectedDrawer(drawer === selectedDrawer ? "closed" : drawer)}
                     fill={selectedDrawer === drawer ? "white" : "transparent"}
                 />
