@@ -1,11 +1,22 @@
 import "./Image.scss"
 import { useStore } from "../../stores/useStore"
+import image from "./test.jpg"
+import { ImageColorPicker } from "react-image-color-picker"
 
 function Image() {
-    const selectedDrawer = useStore((state) => state.selectedDrawer)
+    const setSelectedColor = useStore((state) => state.setSelectedColor)
+    const setSelectedDrawer = useStore((state) => state.setSelectedDrawer)
+
+    function handleColorPick(color) {
+        setSelectedColor(color)
+        setSelectedDrawer("current")
+    }
 
     return (
-        <div className="image">{selectedDrawer}</div>
+        <div className="image">
+            <img src={image} className="image__bg" />
+            <ImageColorPicker onColorPick={handleColorPick} imgSrc={image} zoom={0.5} />
+        </div>
     )
 }
 
