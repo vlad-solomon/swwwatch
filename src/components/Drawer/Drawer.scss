@@ -10,4 +10,7 @@
 	right: 10px;
 	border-radius: var(--border-radius) var(--border-radius) 0 0;
 	z-index: 1;
+	&--empty {
+		height: 200px;
+	}
 }

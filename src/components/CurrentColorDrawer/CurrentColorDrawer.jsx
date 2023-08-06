@@ -1,35 +1,33 @@
 import Drawer from "../Drawer/Drawer"
 import ColorDetail from "../ColorDetail/ColorDetail"
 import Button from "../Button/Button"
-import useHSLVariations from "../../hooks/useHSLVariations"
 import useColor from "../../hooks/useColor"
 
 import "./CurrentColorDrawer.scss"
+
 import { useStore } from "../../stores/useStore"
 import { useState } from "react"
 
 export default function CurrentColorDrawer() {
     const selectedColor = useStore((state) => state.selectedColor)
     const [isGradient, setIsGradient] = useState(false)
-    const colorDetails = selectedColor && useColor(selectedColor)
-    const hslVariations = selectedColor && useHSLVariations(colorDetails.hsl);
-
+    const { hex, rgb, hsl, cmyk, tints } = useColor(selectedColor)
 
     return (
         selectedColor !== null ?
             <Drawer modifier="current-color">
                 <div className="color-shades">
-                    {hslVariations.map(([hue, saturation, value], index) => <div className="color-shades__shade" key={index} style={{ backgroundColor: `hsl(${hue}, ${saturation}%, ${value}%)` }}></div>)}
+                    {tints.map((color, index) => <div className="color-shades__shade" key={index} style={{ backgroundColor: color }}></div>)}
                     <span className="color-shades__toggle" onClick={() => setIsGradient((prev) => !prev)}>Toggle gradient</span>
-                    {isGradient && <div className="color-shades__gradient" style={{ background: `linear-gradient(90deg, ${hslVariations.map(([hue, saturation, value], index) => `hsl(${hue}, ${saturation}%, ${value}%)`)})` }}></div>}
+                    {isGradient && <div className="color-shades__gradient" style={{ background: `linear-gradient(90deg, ${tints.join(",")})` }}></div>}
                 </div>
                 <div className="color-details">
-                    {Object.entries(colorDetails).map(([type, values], index) => <ColorDetail key={index} type={type} values={values} />)}
+                    {Object.entries({ hex, rgb, hsl, cmyk }).map(([type, values], index) => <ColorDetail key={index} type={type} values={values} />)}
                 </div>
-                <Button text="Save to favorite" />
+                <Button text="Save to favorites" />
             </Drawer>
             :
-            <Drawer>
+            <Drawer modifier="empty">
                 no color
             </Drawer>
     )
