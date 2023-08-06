@@ -1,6 +1,6 @@
 import "./Image.scss"
 import { useStore } from "../../stores/useStore"
-import image from "./test.jpg"
+import image from "./test.png"
 import { ImageColorPicker } from "react-image-color-picker"
 
 function Image() {

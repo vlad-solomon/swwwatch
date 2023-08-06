@@ -20,7 +20,7 @@ function Nav() {
                 <Icon
                     key={drawer}
                     onClick={() => setSelectedDrawer(drawer === selectedDrawer ? "closed" : drawer)}
-                    fill={selectedDrawer === drawer ? "white" : "transparent"}
+                    className={drawer === selectedDrawer ? "nav__selected" : ""}
                 />
             )}
         </div>

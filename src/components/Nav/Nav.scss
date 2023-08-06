@@ -14,4 +14,10 @@
 	& > * {
 		cursor: pointer;
 	}
+	&__selected {
+		fill: var(--white);
+		path:not(:first-of-type) {
+			stroke: var(--gray-400);
+		}
+	}
 }

@@ -7,3 +7,6 @@ export default function useHSLVariations(hsl) {
     })
     return variations;
 }
+
+// todo i can get rid of this hooks by using colord lighten, darken, tones, tints and shades
+// also i dont need to fumble with hsl values no longer

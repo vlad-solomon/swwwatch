@@ -4,7 +4,7 @@
 	font-family: "Inter", sans-serif;
 	line-height: 1.5;
 	font-size: var(--fs-r);
-	font-weight: 400;
+	font-weight: var(--fw-semibold);
 	background-color: var(--gray-600);
 	color: var(--white);
 
@@ -30,6 +30,8 @@
 	--gray-400: #555b77;
 
 	--border-radius: 5px;
+
+	/* todo add box-shadow variables (also other variables from the old project)*/
 }
 
 *,
