@@ -2,6 +2,7 @@ import "./Image.scss"
 import { useStore } from "../../stores/useStore"
 import image from "./test.png"
 import { ImageColorPicker } from "react-image-color-picker"
+import { useEffect } from "react"
 
 function Image() {
     const setSelectedColor = useStore((state) => state.setSelectedColor)
@@ -12,10 +13,18 @@ function Image() {
         setSelectedDrawer("current")
     }
 
+    useEffect(() => {
+        const removedElements = document.querySelectorAll("div[data-testid='color-preview'], div[data-testid='zoom-preview-container']");
+        removedElements.forEach(removedElement => {
+            removedElement.parentNode.removeChild(removedElement)
+        })
+
+    }, [])
+
     return (
         <div className="image">
             <img src={image} className="image__bg" />
-            <ImageColorPicker onColorPick={handleColorPick} imgSrc={image} zoom={0.5} />
+            <ImageColorPicker onColorPick={handleColorPick} imgSrc={image} />
         </div>
     )
 }

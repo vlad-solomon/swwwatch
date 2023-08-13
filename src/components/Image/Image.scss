@@ -28,8 +28,21 @@
 		width: unset;
 		cursor: crosshair;
 	}
-	[data-testid="zoom-preview"],
-	[data-testid="color-preview"] {
-		display: none;
+	// [data-testid="zoom-preview"],
+	// [data-testid="color-preview"] {
+	// 	display: none;
+	// }
+	&__container {
+		position: relative;
+	}
+	&__magnifier {
+		position: absolute;
+		height: 100px;
+		width: 100px;
+		z-index: 1;
+		outline: 5px solid red;
+		// transform: translate(-50%, -50%);
+		// border-radius: 100%;
+		// pointer-events: none;
 	}
 }
