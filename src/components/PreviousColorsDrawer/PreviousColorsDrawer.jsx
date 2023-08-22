@@ -7,5 +7,5 @@ import { usePrevious } from "../../stores/usePrevious"
 export default function PreviousColorsDrawer() {
     const previous = usePrevious((state) => state.previous)
 
-    return <Drawer>{previous.map((color) => <ColorSquare key={`previous-${color}`} color={color} />)}</Drawer>
+    return (previous.length ? <Drawer>{previous.map((color) => <ColorSquare key={`previous-${color}`} color={color} />)}</Drawer> : <Drawer modifier="empty">no previous colors</Drawer>)
 }

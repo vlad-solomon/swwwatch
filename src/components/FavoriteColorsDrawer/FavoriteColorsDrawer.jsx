@@ -5,5 +5,6 @@ import { useFavorite } from "../../stores/useFavorites";
 
 export default function FavoriteColorsDrawer() {
     const favorites = useFavorite((state) => state.favorites)
-    return <Drawer>{favorites.map((color) => <ColorSquare key={color} color={color} />)}</Drawer>
+
+    return (favorites.length ? <Drawer>{favorites.map((color) => <ColorSquare key={color} color={color} />)}</Drawer> : <Drawer modifier="empty">no favorite colors</Drawer>)
 }

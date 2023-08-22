@@ -28,7 +28,6 @@ export default function CurrentColorDrawer() {
                 <div className="color-details">
                     {Object.entries({ hex, rgb, hsl, cmyk }).map(([type, values], index) => <ColorDetail key={index} type={type} values={values} />)}
                 </div>
-                {JSON.stringify(favorites)}
                 <Button onClick={() => setFavorites(selectedColor)}>{favorites.includes(selectedColor) ? "Remove from favorites" : "Add to favorites"}</Button>
             </Drawer>
             :
