@@ -1,9 +1,9 @@
 import "./FavoriteColorsDrawer.scss";
 import Drawer from "../Drawer/Drawer";
 import ColorSquare from "../ColorSquare/ColorSquare";
+import { useFavorite } from "../../stores/useFavorites";
 
 export default function FavoriteColorsDrawer() {
-    // const mockFavoriteColors = Array(25).fill("#555")
-    // return <Drawer>{mockFavoriteColors.map((color) => <ColorSquare color={color} />)}</Drawer>
-    return <Drawer>no favorites</Drawer>
+    const favorites = useFavorite((state) => state.favorites)
+    return <Drawer>{favorites.map((color) => <ColorSquare key={color} color={color} />)}</Drawer>
 }

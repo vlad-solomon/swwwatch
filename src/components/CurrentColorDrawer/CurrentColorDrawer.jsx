@@ -6,10 +6,14 @@ import useColor from "../../hooks/useColor"
 import "./CurrentColorDrawer.scss"
 
 import { useStore } from "../../stores/useStore"
+import { useFavorite } from "../../stores/useFavorites"
 import { useState } from "react"
 
 export default function CurrentColorDrawer() {
     const selectedColor = useStore((state) => state.selectedColor)
+    const favorites = useFavorite((state) => state.favorites)
+    const setFavorites = useFavorite((state) => state.setFavorites)
+
     const [isGradient, setIsGradient] = useState(false)
     const { hex, rgb, hsl, cmyk, tints } = useColor(selectedColor)
 
@@ -24,7 +28,8 @@ export default function CurrentColorDrawer() {
                 <div className="color-details">
                     {Object.entries({ hex, rgb, hsl, cmyk }).map(([type, values], index) => <ColorDetail key={index} type={type} values={values} />)}
                 </div>
-                <Button text="Save to favorites" />
+                {JSON.stringify(favorites)}
+                <Button onClick={() => setFavorites(selectedColor)}>{favorites.includes(selectedColor) ? "Remove from favorites" : "Add to favorites"}</Button>
             </Drawer>
             :
             <Drawer modifier="empty">

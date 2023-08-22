@@ -1,8 +1,10 @@
 import "./Button.scss"
 
-function Button({ text = "TEXT" }) {
+function Button({ children, onClick }) {
     return (
-        <div className="button">{text}</div>
+        <div className="button" onClick={onClick}>
+            {children}
+        </div>
     )
 }
 
