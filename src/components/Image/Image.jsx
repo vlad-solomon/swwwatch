@@ -4,13 +4,16 @@ import image from "./test.png"
 import cat from "./cat.jpg"
 import { ImageColorPicker } from "react-image-color-picker"
 import { useEffect } from "react"
+import { usePrevious } from "../../stores/usePrevious"
 
 function Image() {
     const setSelectedColor = useStore((state) => state.setSelectedColor)
     const setSelectedDrawer = useStore((state) => state.setSelectedDrawer)
+    const addPrevious = usePrevious((state) => state.addPrevious)
 
     function handleColorPick(color) {
         setSelectedColor(color)
+        addPrevious(color)
         setSelectedDrawer("current")
     }
 
