@@ -1,7 +1,7 @@
 import "./Nav.scss"
-import { ReactComponent as Color } from "./color.svg"
-import { ReactComponent as Favorite } from "./favorite.svg"
-import { ReactComponent as Previous } from "./previous.svg"
+import { ReactComponent as Color } from "../../img/color.svg"
+import { ReactComponent as Favorite } from "../../img/favorite.svg"
+import { ReactComponent as Previous } from "../../img/previous.svg"
 import { useStore } from "../../stores/useStore"
 
 const drawers = {
@@ -20,7 +20,7 @@ function Nav() {
                 <Icon
                     key={drawer}
                     onClick={() => setSelectedDrawer(drawer === selectedDrawer ? "closed" : drawer)}
-                    className={drawer === selectedDrawer ? "nav__selected" : ""}
+                    className={drawer === selectedDrawer ? "filled" : ""}
                 />
             )}
         </div>

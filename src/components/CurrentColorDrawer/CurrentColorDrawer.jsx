@@ -2,6 +2,7 @@ import Drawer from "../Drawer/Drawer"
 import ColorDetail from "../ColorDetail/ColorDetail"
 import Button from "../Button/Button"
 import useColor from "../../hooks/useColor"
+import { ReactComponent as Favorite } from "../../img/favorite.svg"
 
 import "./CurrentColorDrawer.scss"
 
@@ -28,7 +29,11 @@ export default function CurrentColorDrawer() {
                 <div className="color-details">
                     {Object.entries({ hex, rgb, hsl, cmyk }).map(([type, values], index) => <ColorDetail key={index} type={type} values={values} />)}
                 </div>
-                <Button onClick={() => setFavorites(selectedColor)}>{favorites.includes(selectedColor) ? "Remove from favorites" : "Add to favorites"}</Button>
+                <Button onClick={() => setFavorites(selectedColor)}>{favorites.includes(selectedColor) ?
+                    <><Favorite className="filled" /> Remove from favorites</>
+                    :
+                    <><Favorite /> Add to favorites</>}
+                </Button>
             </Drawer>
             :
             <Drawer modifier="empty">

@@ -11,13 +11,7 @@
 	&--drawer-open {
 		border-radius: 0 0 var(--border-radius) var(--border-radius);
 	}
-	& > * {
+	& > svg {
 		cursor: pointer;
-	}
-	&__selected {
-		fill: var(--white);
-		path:not(:first-of-type) {
-			stroke: var(--gray-400);
-		}
 	}
 }

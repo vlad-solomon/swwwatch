@@ -5,4 +5,9 @@
 	justify-content: center;
 	background-color: var(--gray-600);
 	border-radius: var(--border-radius);
+	gap: 10px;
+	cursor: pointer;
+	svg {
+		height: 1.15em;
+	}
 }
