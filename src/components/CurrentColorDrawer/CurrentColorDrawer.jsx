@@ -27,7 +27,7 @@ export default function CurrentColorDrawer() {
                     {isGradient && <div className="color-shades__gradient" style={{ background: `linear-gradient(90deg, ${tints.join(",")})` }}></div>}
                 </div>
                 <div className="color-details">
-                    {Object.entries({ hex, rgb, hsl, cmyk }).map(([type, values], index) => <ColorDetail key={index} type={type} values={values} />)}
+                    {Object.entries({ hex, rgb, hsl, cmyk }).map(([type, details], index) => <ColorDetail key={index} type={type} values={details.value} pretty={details.pretty} />)}
                 </div>
                 <Button onClick={() => setFavorites(selectedColor)}>{favorites.includes(selectedColor) ?
                     <><Favorite className="filled" /> Remove from favorites</>
