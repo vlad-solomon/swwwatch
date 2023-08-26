@@ -1,13 +1,19 @@
 .button {
-	height: 45px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--gray-600);
 	border-radius: var(--border-radius);
 	gap: 10px;
 	cursor: pointer;
-	svg {
-		height: 1.15em;
+	&--rectangle {
+		background-color: var(--gray-600);
+		height: 45px;
+		svg {
+			height: 1.15em;
+		}
+	}
+	&--square {
+		aspect-ratio: 1;
+		background-color: var(--gray-400);
 	}
 }
