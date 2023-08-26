@@ -15,5 +15,8 @@
 	&--square {
 		aspect-ratio: 1;
 		background-color: var(--gray-400);
+		&:hover {
+			background-color: var(--gray-600);
+		}
 	}
 }

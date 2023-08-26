@@ -1,19 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 
 :root {
-	font-family: "Inter", sans-serif;
-	line-height: 1.5;
-	font-size: var(--fs-r);
-	font-weight: var(--fw-semibold);
-	background-color: var(--gray-600);
-	color: var(--white);
-
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
-
 	--fs-xxl: 22px;
 	--fs-xl: 20px;
 	--fs-l: 18px;
@@ -31,6 +18,19 @@
 
 	--border-radius: 5px;
 
+	font-family: "Inter", sans-serif;
+	line-height: 1.5;
+	font-size: var(--fs-r);
+	font-weight: var(--fw-semibold);
+	background-color: var(--gray-600);
+	color: var(--white);
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+
 	/* todo add box-shadow variables (also other variables from the old project)*/
 }
 
@@ -38,6 +38,7 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+	user-select: none;
 }
 
 body {

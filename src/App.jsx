@@ -7,6 +7,7 @@ import Nav from "./components/Nav/Nav";
 
 import { useStore } from "./stores/useStore";
 import Overlay from "./components/Overlay/Overlay";
+import { useEffect } from "react";
 
 const drawers = {
     current: CurrentColorDrawer,
@@ -16,12 +17,12 @@ const drawers = {
 
 function App() {
     const selectedDrawer = useStore((state) => state.selectedDrawer)
-    const SelectedDrawer = drawers[selectedDrawer]
+    const SelectedDrawerComponent = drawers[selectedDrawer]
 
     return (
         <>
             <div className="app">
-                {selectedDrawer !== "closed" ? <SelectedDrawer /> : ""}
+                {selectedDrawer !== "closed" ? <SelectedDrawerComponent /> : ""}
                 <Image />
                 <Nav />
                 {selectedDrawer !== "closed" ? <Overlay /> : ""}

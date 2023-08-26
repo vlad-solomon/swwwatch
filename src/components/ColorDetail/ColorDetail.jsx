@@ -9,10 +9,9 @@ function ColorDetail({ type, values, pretty }) {
                 <div className="color-detail__type">{type}</div>
                 <div className="color-detail__values">{Array.isArray(values) ? values.map((value, index) => <span key={index}>{value}</span>) : <span>{values}</span>}</div>
             </div>
-            {/* <div className="mock-button" onClick={() => navigator.clipboard.writeText(pretty)}>
+            <Button shape="square" onClick={() => navigator.clipboard.writeText(pretty)}>
                 <Copy />
-            </div> */}
-            <Button shape="square"><Copy /></Button>
+            </Button>
         </div>
     )
 }
