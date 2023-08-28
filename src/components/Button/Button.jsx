@@ -1,3 +1,4 @@
+import { forwardRef } from "react"
 import "./Button.scss"
 import { cva } from "class-variance-authority"
 
@@ -13,12 +14,12 @@ const buttonCVA = cva("button", {
     }
 })
 
-function Button({ children, shape, onClick }) {
+const Button = forwardRef(({ children, shape, onClick }, ref) => {
     return (
-        <div className={buttonCVA({ shape })} onClick={onClick}>
+        <div ref={ref} className={buttonCVA({ shape })} onClick={onClick}>
             {children}
         </div>
     )
-}
+})
 
 export default Button

@@ -14,8 +14,6 @@ function Image() {
     const setSelectedDrawer = useStore((state) => state.setSelectedDrawer)
     const addPrevious = usePrevious((state) => state.addPrevious)
 
-    // const [canvasScale, setCanvasScale] = useState(0)
-
     function handleColorPick(color) {
         setSelectedColor(color)
         addPrevious(color)
@@ -38,10 +36,7 @@ function Image() {
         const hScale = parentHeight / childHeight
         const scale = Math.min(wScale, hScale)
 
-        console.log("calculating scale...")
-
         child.style.transform = `scale(${scale})`
-
     }
 
     useEffect(() => {
