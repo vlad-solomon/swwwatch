@@ -3,6 +3,7 @@ import ColorDetail from "../ColorDetail/ColorDetail"
 import Button from "../Button/Button"
 import useColor from "../../hooks/useColor"
 import { ReactComponent as Favorite } from "../../img/favorite.svg"
+import Tooltip from "../Tooltip/Tooltip"
 
 import "./CurrentColorDrawer.scss"
 
@@ -22,7 +23,11 @@ export default function CurrentColorDrawer() {
         selectedColor !== null ?
             <Drawer modifier="current-color">
                 <div className="color-shades">
-                    {tints.map((color, index) => <div className="color-shades__shade" key={index} style={{ backgroundColor: color }}></div>)}
+                    {tints.map((color, index) =>
+                        <Tooltip content={color} disabled={color === hex.value}>
+                            <div className="color-shades__shade" key={index} style={{ backgroundColor: color }}></div>
+                        </Tooltip>
+                    )}
                     <span className="color-shades__toggle" onClick={() => setIsGradient((prev) => !prev)}>Toggle gradient</span>
                     {isGradient && <div className="color-shades__gradient" style={{ background: `linear-gradient(90deg, ${tints.join(",")})` }}></div>}
                 </div>
@@ -41,3 +46,5 @@ export default function CurrentColorDrawer() {
             </Drawer>
     )
 }
+
+// todo save previous and favorites ONLY in hex format

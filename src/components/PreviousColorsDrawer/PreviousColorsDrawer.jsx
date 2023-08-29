@@ -10,11 +10,11 @@ export default function PreviousColorsDrawer() {
 
     return (previous.length ?
         <Drawer>
-            {previous.map((color) => (
+            {previous.map((color) =>
                 <Tooltip content={color}>
                     <ColorSquare key={`previous-${color}`} color={color} />
                 </Tooltip>
-            ))}
+            )}
         </Drawer>
         :
         <Drawer modifier="empty">no previous colors</Drawer>
