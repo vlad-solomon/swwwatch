@@ -1,8 +1,7 @@
 import "./ColorDetail.scss"
 import Button from "../Button/Button"
 import { ReactComponent as Copy } from "../../img/copy.svg"
-import Tippy from "@tippyjs/react"
-import "tippy.js/dist/tippy.css"
+import Tooltip from "../Tooltip/Tooltip"
 
 function ColorDetail({ type, values, pretty }) {
 
@@ -12,7 +11,7 @@ function ColorDetail({ type, values, pretty }) {
                 <div className="color-detail__type">{type}</div>
                 <div className="color-detail__values">{Array.isArray(values) ? values.map((value, index) => <span key={index}>{value}</span>) : <span>{values}</span>}</div>
             </div>
-            <Tippy content={
+            <Tooltip content={
                 <>
                     <span>{pretty}</span>
                     <span>Click to copy</span>
@@ -21,7 +20,7 @@ function ColorDetail({ type, values, pretty }) {
                 <Button shape="square" onClick={() => navigator.clipboard.writeText(pretty)}>
                     <Copy />
                 </Button>
-            </Tippy>
+            </Tooltip>
         </div>
     )
 }
