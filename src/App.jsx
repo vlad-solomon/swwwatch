@@ -7,7 +7,6 @@ import Nav from "./components/Nav/Nav";
 
 import { useStore } from "./stores/useStore";
 import Overlay from "./components/Overlay/Overlay";
-import { useEffect } from "react";
 
 const drawers = {
     current: CurrentColorDrawer,

@@ -11,8 +11,8 @@ export default function FavoriteColorsDrawer() {
     return (favorites.length ?
         <Drawer>
             {favorites.map((color) =>
-                <Tooltip content={color}>
-                    <ColorSquare key={color} color={color} />
+                <Tooltip key={`favorite-${color}`} content={color}>
+                    <ColorSquare color={color} />
                 </Tooltip>
             )}
         </Drawer>

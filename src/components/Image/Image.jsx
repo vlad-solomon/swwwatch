@@ -1,11 +1,11 @@
 import "./Image.scss"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useStore } from "../../stores/useStore"
 import { ImageColorPicker } from "react-image-color-picker"
-import { useEffect } from "react"
 import { usePrevious } from "../../stores/usePrevious"
 import { ReactComponent as Welcome } from "../../img/welcome.svg"
 import cat from "../../img/cat.jpg"
+import useColor from "../../hooks/useColor"
 
 function Image() {
     const uploadedImage = useStore((state) => state.uploadedImage)
@@ -15,8 +15,9 @@ function Image() {
     const addPrevious = usePrevious((state) => state.addPrevious)
 
     function handleColorPick(color) {
-        setSelectedColor(color)
-        addPrevious(color)
+        const { hex } = useColor(color);
+        setSelectedColor(hex.value);
+        addPrevious(hex.value)
         setSelectedDrawer("current")
     }
 

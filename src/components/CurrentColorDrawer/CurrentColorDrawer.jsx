@@ -24,8 +24,8 @@ export default function CurrentColorDrawer() {
             <Drawer modifier="current-color">
                 <div className="color-shades">
                     {tints.map((color, index) =>
-                        <Tooltip content={color} disabled={color === hex.value}>
-                            <div className="color-shades__shade" key={index} style={{ backgroundColor: color }}></div>
+                        <Tooltip key={index} content={color} disabled={color === hex.value}>
+                            <div className="color-shades__shade" style={{ backgroundColor: color }}></div>
                         </Tooltip>
                     )}
                     <span className="color-shades__toggle" onClick={() => setIsGradient((prev) => !prev)}>Toggle gradient</span>
@@ -46,5 +46,3 @@ export default function CurrentColorDrawer() {
             </Drawer>
     )
 }
-
-// todo save previous and favorites ONLY in hex format

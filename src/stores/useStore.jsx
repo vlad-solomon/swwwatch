@@ -3,7 +3,7 @@ import test from "../img/test.png"
 import cat from "../img/cat.jpg"
 
 export const useStore = create((set) => ({
-    uploadedImage: cat,
+    uploadedImage: test,
     setUploadedImage: (url) => set({ uploadedImage: url }),
     selectedDrawer: "closed",
     setSelectedDrawer: (selectedDrawer) => set({ selectedDrawer: selectedDrawer }),
