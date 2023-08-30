@@ -10,11 +10,14 @@ import "./CurrentColorDrawer.scss"
 import { useStore } from "../../stores/useStore"
 import { useFavorite } from "../../stores/useFavorites"
 import { useState } from "react"
+import { usePrevious } from "../../stores/usePrevious"
 
 export default function CurrentColorDrawer() {
     const selectedColor = useStore((state) => state.selectedColor)
+    const setSelectedColor = useStore((state) => state.setSelectedColor)
     const favorites = useFavorite((state) => state.favorites)
     const setFavorites = useFavorite((state) => state.setFavorites)
+    const addPrevious = usePrevious((state) => state.addPrevious)
 
     const [isGradient, setIsGradient] = useState(false)
     const { hex, rgb, hsl, cmyk, tints } = useColor(selectedColor)
@@ -25,7 +28,11 @@ export default function CurrentColorDrawer() {
                 <div className="color-shades">
                     {tints.map((color, index) =>
                         <Tooltip key={index} content={color} disabled={color === hex.value}>
-                            <div className="color-shades__shade" style={{ backgroundColor: color }}></div>
+                            <div className="color-shades__shade" style={{ backgroundColor: color }} onClick={() => {
+                                if (color === hex.value) return
+                                setSelectedColor(color)
+                                addPrevious(color)
+                            }}></div>
                         </Tooltip>
                     )}
                     <span className="color-shades__toggle" onClick={() => setIsGradient((prev) => !prev)}>Toggle gradient</span>
