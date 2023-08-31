@@ -27,9 +27,9 @@ export default function CurrentColorDrawer() {
             <Drawer modifier="current-color">
                 <div className="color-shades">
                     {tints.map((color, index) =>
-                        <Tooltip key={index} content={color} disabled={color === hex.value}>
-                            <div className="color-shades__shade" style={{ backgroundColor: color }} onClick={() => {
-                                if (color === hex.value) return
+                        <Tooltip key={index} content={color} disabled={color === selectedColor}>
+                            <div className="color-shades__shade" style={{ backgroundColor: color, cursor: color !== selectedColor ? "pointer" : "" }} onClick={() => {
+                                if (color === selectedColor) return
                                 setSelectedColor(color)
                                 addPrevious(color)
                             }}></div>
@@ -42,9 +42,7 @@ export default function CurrentColorDrawer() {
                     {Object.entries({ hex, rgb, hsl, cmyk }).map(([type, details], index) => <ColorDetail key={index} type={type} values={details.value} pretty={details.pretty} />)}
                 </div>
                 <Button onClick={() => setFavorites(selectedColor)}>{favorites.includes(selectedColor) ?
-                    <><Favorite className="filled" /> Remove from favorites</>
-                    :
-                    <><Favorite /> Add to favorites</>}
+                    <><Favorite className="filled" /> Remove from favorites</> : <><Favorite /> Add to favorites</>}
                 </Button>
             </Drawer>
             :

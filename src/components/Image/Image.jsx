@@ -14,6 +14,8 @@ function Image() {
     const setSelectedDrawer = useStore((state) => state.setSelectedDrawer)
     const addPrevious = usePrevious((state) => state.addPrevious)
 
+    const [imageDetails, setImageDetails] = useState({})
+
     function handleColorPick(color) {
         const { hex } = useColor(color);
         setSelectedColor(hex.value);
@@ -26,31 +28,51 @@ function Image() {
         if (!uploadedImage) return
 
         const parent = document.querySelector("div[data-testid='image-color-pick-container']")
-        const child = document.querySelector("canvas[data-testid='image-color-pick-canvas']")
+        const child = document.querySelector(".image__bg")
 
         const parentWidth = parent.clientWidth
         const parentHeight = parent.clientHeight
-        const childWidth = child.clientWidth
-        const childHeight = child.clientHeight
+        child.addEventListener("load", () => setImageDetails({ childWidth: child.naturalWidth, childHeight: child.naturalHeight }))
 
-        const wScale = parentWidth / childWidth
-        const hScale = parentHeight / childHeight
+        const wScale = parentWidth / imageDetails.childWidth
+        const hScale = parentHeight / imageDetails.childHeight
         const scale = Math.min(wScale, hScale)
 
-        child.style.transform = `scale(${scale})`
+        const canvas = document.querySelector("canvas[data-testid='image-color-pick-canvas']")
+        canvas.style.transform = `scale(${scale})`
+
+    }
+
+    function handlePaste(event) {
+        const clipboardItems = event.clipboardData.items;
+        const items = [].slice.call(clipboardItems).filter(function (item) {
+            return item.type.indexOf("image") !== -1;
+        });
+        if (items.length === 0) return;
+        const item = items[0];
+        const blob = item.getAsFile();
+        const data = URL.createObjectURL(blob);
+
+        setUploadedImage(data)
     }
 
     useEffect(() => {
         const removedElements = document.querySelectorAll("div[data-testid='color-preview'], div[data-testid='zoom-preview-container']");
-        removedElements.forEach(removedElement => {
-            removedElement.parentNode.removeChild(removedElement)
-        })
+        removedElements.forEach(removedElement => removedElement.parentNode.removeChild(removedElement))
 
+        document.addEventListener("paste", handlePaste)
+        return () => {
+            document.removeEventListener("paste", handlePaste)
+        }
+    }, [])
+
+    useEffect(() => {
+        handleResize();
         window.addEventListener("resize", handleResize)
         return () => {
             window.removeEventListener("resize", handleResize)
         }
-    }, [])
+    }, [imageDetails])
 
     return (
         uploadedImage

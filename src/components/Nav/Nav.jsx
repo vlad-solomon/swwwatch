@@ -10,6 +10,8 @@ const drawers = {
     previous: Previous,
 }
 
+//todo add color-theme generator
+
 function Nav() {
     const selectedDrawer = useStore((state) => state.selectedDrawer)
     const setSelectedDrawer = useStore((state) => state.setSelectedDrawer)
