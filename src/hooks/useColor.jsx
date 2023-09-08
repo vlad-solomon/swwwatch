@@ -15,6 +15,9 @@ export default function useColor(color) {
     const cmyk = Object.values(colord(color).toCmyk()).slice(0, -1)
     const tints = offsets.map((offset) => colord(color).lighten(offset).toHex())
 
+
+    //todo set all pretty to uppercase?
+
     return {
         hex: {
             value: hex,

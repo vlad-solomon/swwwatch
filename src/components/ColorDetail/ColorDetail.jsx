@@ -2,6 +2,7 @@ import "./ColorDetail.scss"
 import Button from "../Button/Button"
 import { ReactComponent as Copy } from "../../img/copy.svg"
 import Tooltip from "../Tooltip/Tooltip"
+import toast from "react-hot-toast"
 
 function ColorDetail({ type, values, pretty }) {
 
@@ -17,11 +18,19 @@ function ColorDetail({ type, values, pretty }) {
                     <span>Click to copy</span>
                 </>
             }>
-                <Button shape="square" onClick={() => navigator.clipboard.writeText(pretty)}>
+                <Button shape="square" onClick={() => {
+                    navigator.clipboard.writeText(pretty)
+                    toast((t) => (
+                        <>
+                            <span>Copied {pretty} to clipboard!</span>
+                            <span onClick={() => toast.dismiss(t.id)}>X</span>
+                        </>
+                    ))
+                }}>
                     <Copy />
                 </Button>
-            </Tooltip>
-        </div>
+            </Tooltip >
+        </div >
     )
 }
 

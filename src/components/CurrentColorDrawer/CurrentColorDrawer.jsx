@@ -26,6 +26,7 @@ export default function CurrentColorDrawer() {
         selectedColor !== null ?
             <Drawer modifier="current-color">
                 <div className="color-shades">
+                    {/* //todo remove duplicates but always keep the original color wider? basically get rid of :nth-child and give the selected color a class to widen it  */}
                     {tints.map((color, index) =>
                         <Tooltip key={index} content={color} disabled={color === selectedColor}>
                             <div className="color-shades__shade" style={{ backgroundColor: color, cursor: color !== selectedColor ? "pointer" : "" }} onClick={() => {
