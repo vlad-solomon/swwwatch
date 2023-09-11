@@ -4,10 +4,10 @@ import PreviousColorsDrawer from "./components/PreviousColorsDrawer/PreviousColo
 import FavoriteColorsDrawer from "./components/FavoriteColorsDrawer/FavoriteColorsDrawer"
 import Image from "./components/Image/Image"
 import Nav from "./components/Nav/Nav";
+import Toast from "./components/Toast/Toast";
 
 import { useStore } from "./stores/useStore";
 import Overlay from "./components/Overlay/Overlay";
-import { Toaster } from "react-hot-toast";
 
 const drawers = {
     current: CurrentColorDrawer,
@@ -21,12 +21,15 @@ function App() {
 
     return (
         <>
-            <Toaster gutter={10} />
+            <Toast />
             <div className="app">
-                {selectedDrawer !== "closed" ? <SelectedDrawerComponent /> : ""}
                 <Image />
                 <Nav />
-                {selectedDrawer !== "closed" ? <Overlay /> : ""}
+                {selectedDrawer !== "closed" ?
+                    <>
+                        <Overlay />
+                        <SelectedDrawerComponent />
+                    </> : ""}
             </div>
             {/* //todo footer component comes here */}
         </>)

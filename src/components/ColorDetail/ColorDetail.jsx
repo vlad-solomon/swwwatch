@@ -3,6 +3,7 @@ import Button from "../Button/Button"
 import { ReactComponent as Copy } from "../../img/copy.svg"
 import Tooltip from "../Tooltip/Tooltip"
 import toast from "react-hot-toast"
+import { ReactComponent as Close } from "../../img/close.svg"
 
 function ColorDetail({ type, values, pretty }) {
 
@@ -20,10 +21,10 @@ function ColorDetail({ type, values, pretty }) {
             }>
                 <Button shape="square" onClick={() => {
                     navigator.clipboard.writeText(pretty)
-                    toast((t) => (
+                    toast(({ id }) => (
                         <>
-                            <span>Copied {pretty} to clipboard!</span>
-                            <span onClick={() => toast.dismiss(t.id)}>X</span>
+                            <span>Copied <span className="toast__pretty">{pretty}</span> to clipboard!</span>
+                            <Close onClick={() => toast.dismiss(id)} />
                         </>
                     ))
                 }}>
