@@ -11,6 +11,7 @@
 	--fw-semibold: 600;
 
 	--white-text: rgba(255, 255, 255, 0.8);
+	/* todo use this variable ^ */
 	--white: #fff;
 	--gray-600: #292c39;
 	--gray-500: #41455a;

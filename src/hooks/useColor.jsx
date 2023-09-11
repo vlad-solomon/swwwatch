@@ -13,10 +13,7 @@ export default function useColor(color) {
     const rgb = Object.values(colord(color).toRgb()).slice(0, -1)
     const hsl = Object.values(colord(color).toHsl()).slice(0, -1)
     const cmyk = Object.values(colord(color).toCmyk()).slice(0, -1)
-    const tints = offsets.map((offset) => colord(color).lighten(offset).toHex())
-
-
-    //todo set all pretty to uppercase?
+    const tints = [...new Set(offsets.map((offset) => colord(color).lighten(offset).toHex()))]
 
     return {
         hex: {

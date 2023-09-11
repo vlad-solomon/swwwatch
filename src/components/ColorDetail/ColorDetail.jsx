@@ -35,6 +35,4 @@ function ColorDetail({ type, values, pretty }) {
     )
 }
 
-//todo display notification when color is copied to clipboard
-
 export default ColorDetail

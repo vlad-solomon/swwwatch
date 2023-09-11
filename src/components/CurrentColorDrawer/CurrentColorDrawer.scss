@@ -30,9 +30,10 @@
 		&__shade {
 			height: 100%;
 			flex: 1;
-
-			&:nth-child(3) {
+			cursor: pointer;
+			&--selected-color {
 				flex: 2.5;
+				pointer-events: none;
 			}
 		}
 	}

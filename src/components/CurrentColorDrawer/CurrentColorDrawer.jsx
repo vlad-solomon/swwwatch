@@ -3,7 +3,9 @@ import ColorDetail from "../ColorDetail/ColorDetail"
 import Button from "../Button/Button"
 import useColor from "../../hooks/useColor"
 import { ReactComponent as Favorite } from "../../img/favorite.svg"
+import { ReactComponent as Close } from "../../img/close.svg"
 import Tooltip from "../Tooltip/Tooltip"
+import { toast } from "react-hot-toast"
 
 import "./CurrentColorDrawer.scss"
 
@@ -26,14 +28,17 @@ export default function CurrentColorDrawer() {
         selectedColor !== null ?
             <Drawer modifier="current-color">
                 <div className="color-shades">
-                    {/* //todo remove duplicates but always keep the original color wider? basically get rid of :nth-child and give the selected color a class to widen it  */}
                     {tints.map((color, index) =>
-                        <Tooltip key={index} content={color} disabled={color === selectedColor}>
-                            <div className="color-shades__shade" style={{ backgroundColor: color, cursor: color !== selectedColor ? "pointer" : "" }} onClick={() => {
-                                if (color === selectedColor) return
-                                setSelectedColor(color)
-                                addPrevious(color)
-                            }}></div>
+                        <Tooltip key={index} content={color}>
+                            <div className={`color-shades__shade ${color === selectedColor ? "color-shades__shade--selected-color" : ""}`}
+                                style={{
+                                    backgroundColor: color
+                                }}
+                                onClick={() => {
+                                    if (color === selectedColor) return
+                                    setSelectedColor(color)
+                                    addPrevious(color)
+                                }}></div>
                         </Tooltip>
                     )}
                     <span className="color-shades__toggle" onClick={() => setIsGradient((prev) => !prev)}>Toggle gradient</span>
@@ -42,7 +47,17 @@ export default function CurrentColorDrawer() {
                 <div className="color-details">
                     {Object.entries({ hex, rgb, hsl, cmyk }).map(([type, details], index) => <ColorDetail key={index} type={type} values={details.value} pretty={details.pretty} />)}
                 </div>
-                <Button onClick={() => setFavorites(selectedColor)}>{favorites.includes(selectedColor) ?
+                <Button onClick={() => {
+                    setFavorites(selectedColor)
+                    toast(({ id }) => (
+                        <>
+                            {favorites.includes(selectedColor) ?
+                                <span>Removed <span className="toast__pretty">{selectedColor}</span> from favorites</span>
+                                :
+                                <span>Added <span className="toast__pretty">{selectedColor}</span> to favorites</span>}
+                            <Close onClick={() => toast.dismiss(id)} />
+                        </>))
+                }}>{favorites.includes(selectedColor) ?
                     <><Favorite className="filled" /> Remove from favorites</> : <><Favorite /> Add to favorites</>}
                 </Button>
             </Drawer>
