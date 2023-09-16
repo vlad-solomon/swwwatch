@@ -1,12 +1,9 @@
 import { forwardRef } from "react";
-import { useStore } from "../../stores/useStore";
-import { usePrevious } from "../../stores/usePrevious";
+import useColorDrawer from "../../hooks/useColorDrawer";
 import "./ColorSquare.scss";
 
 const ColorSquare = forwardRef(({ color }, ref) => {
-	const setSelectedColor = useStore((state) => state.setSelectedColor);
-	const setSelectedDrawer = useStore((state) => state.setSelectedDrawer);
-	const addPrevious = usePrevious((state) => state.addPrevious);
+	const setColorDrawer = useColorDrawer(null);
 
 	return (
 		<div
@@ -14,9 +11,7 @@ const ColorSquare = forwardRef(({ color }, ref) => {
 			className="color-square"
 			style={{ backgroundColor: color }}
 			onClick={() => {
-				setSelectedColor(color);
-				setSelectedDrawer("color");
-				addPrevious(color);
+				setColorDrawer(color);
 			}}
 		></div>
 	);

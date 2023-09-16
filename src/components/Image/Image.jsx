@@ -2,25 +2,21 @@ import "./Image.scss";
 import { useEffect, useRef } from "react";
 import { useStore } from "../../stores/useStore";
 import { ImageColorPicker } from "react-image-color-picker";
-import { usePrevious } from "../../stores/usePrevious";
 import { ReactComponent as Welcome } from "../../img/welcome.svg";
 import useColor from "../../hooks/useColor";
 import { prominent } from "color.js";
+import useColorDrawer from "../../hooks/useColorDrawer";
 
 function Image() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
 	const setUploadedImage = useStore((state) => state.setUploadedImage);
-	const setSelectedColor = useStore((state) => state.setSelectedColor);
-	const setSelectedDrawer = useStore((state) => state.setSelectedDrawer);
 	const setPalette = useStore((state) => state.setPalette);
-	const addPrevious = usePrevious((state) => state.addPrevious);
 	const containerRef = useRef();
+	const setColorDrawer = useColorDrawer(null);
 
 	function handleColorPick(color) {
 		const { hex } = useColor(color);
-		setSelectedColor(hex.value);
-		addPrevious(hex.value);
-		setSelectedDrawer("color");
+		setColorDrawer(hex.value);
 	}
 
 	async function loadImage(src) {
