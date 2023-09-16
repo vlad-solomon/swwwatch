@@ -1,42 +1,6 @@
 .drawer--current-color {
 	display: flex;
 	flex-direction: column;
-	.color-shades {
-		position: relative;
-		height: 60px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: var(--gray-400);
-		border-radius: var(--border-radius);
-		overflow: hidden;
-		&:hover > .color-shades__toggle {
-			opacity: 1;
-		}
-		&__toggle {
-			cursor: pointer;
-			position: absolute;
-			z-index: 1;
-			// font-weight: var(--fw-semibold);
-			opacity: 0;
-		}
-		&__gradient {
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			top: 0;
-			left: 0;
-		}
-		&__shade {
-			height: 100%;
-			flex: 1;
-			cursor: pointer;
-			&--selected-color {
-				flex: 2.5;
-				pointer-events: none;
-			}
-		}
-	}
 	.color-details {
 		display: flex;
 		flex-direction: column;

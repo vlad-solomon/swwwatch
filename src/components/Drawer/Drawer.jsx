@@ -1,9 +1,8 @@
-import "./Drawer.scss"
+import "./Drawer.scss";
 
 function Drawer({ children, modifier }) {
-    return (
-        <div className={`drawer ${modifier ? `drawer--${modifier}` : ""}`}>{children}</div>
-    )
+	// todo set the default modifier to empty?
+	return <div className={`drawer ${modifier ? `drawer--${modifier}` : ""}`}>{children}</div>;
 }
 
-export default Drawer
+export default Drawer;

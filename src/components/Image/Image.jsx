@@ -43,16 +43,17 @@ function Image() {
 		canvas.style.transform = `scale(${scale})`;
 	}
 
-	function handlePaste(event) {
+	async function handlePaste(event) {
 		const items = [].slice.call(event.clipboardData.items).filter((item) => item.type.indexOf("image") !== -1);
-
 		if (items.length === 0) return;
+
 		const data = URL.createObjectURL(items[0].getAsFile());
 
-		loadImage(data).then(({ height, width }) => {
-			setUploadedImage(data, height, width);
-			prominent(data, { amount: 6, format: "hex" }).then((palette) => setPalette(palette));
-		});
+		const { height, width } = await loadImage(data);
+		const palette = await prominent(data, { amount: 6, format: "hex" });
+
+		setUploadedImage(data, height, width);
+		setPalette(palette);
 	}
 
 	useEffect(() => {

@@ -46,11 +46,3 @@ body {
 	margin: 0;
 	display: flex;
 }
-
-svg.filled {
-	fill: var(--white);
-}
-
-svg.filled path:not(:first-of-type) {
-	stroke: var(--gray-400);
-}

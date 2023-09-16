@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { toast } from "react-hot-toast";
 import useColor from "../../hooks/useColor";
 import { ReactComponent as Close } from "../../img/close.svg";
@@ -8,8 +8,11 @@ import { useStore } from "../../stores/useStore";
 import Button from "../Button/Button";
 import ColorDetail from "../ColorDetail/ColorDetail";
 import Drawer from "../Drawer/Drawer";
-import Tooltip from "../Tooltip/Tooltip";
+// import Tooltip from "../Tooltip/Tooltip";
 import "./CurrentColorDrawer.scss";
+import ColorShades from "../ColorShades/ColorShades";
+
+// todo clean comments
 
 export default function CurrentColorDrawer() {
 	const selectedColor = useStore((state) => state.selectedColor);
@@ -18,37 +21,26 @@ export default function CurrentColorDrawer() {
 	const setFavorites = useFavorite((state) => state.setFavorites);
 	const addPrevious = usePrevious((state) => state.addPrevious);
 
-	const [isGradient, setIsGradient] = useState(false);
 	const { hex, rgb, hsl, cmyk, tints } = useColor(selectedColor);
 
 	return selectedColor ? (
 		<Drawer modifier="current-color">
-			<div className="color-shades">
-				{tints.map((color, index) => (
-					<Tooltip key={index} content={color}>
-						<div
-							className={`color-shades__shade ${color === selectedColor ? "color-shades__shade--selected-color" : ""}`}
-							style={{
-								backgroundColor: color,
-							}}
-							onClick={() => {
-								if (color === selectedColor) return;
-								setSelectedColor(color);
-								addPrevious(color);
-							}}
-						></div>
-					</Tooltip>
-				))}
-				<span className="color-shades__toggle" onClick={() => setIsGradient((prev) => !prev)}>
-					Toggle gradient
-				</span>
-				{isGradient && <div className="color-shades__gradient" style={{ background: `linear-gradient(90deg, ${tints.join(",")})` }}></div>}
-			</div>
+			<ColorShades
+				shades={tints}
+				isMatching="color-shades__shade--selected-color"
+				isToggle={true}
+				onClick={(color) => {
+					if (color === selectedColor) return;
+					setSelectedColor(color);
+					addPrevious(color);
+				}}
+			/>
 			<div className="color-details">
 				{Object.entries({ hex, rgb, hsl, cmyk }).map(([type, details], index) => (
 					<ColorDetail key={index} type={type} values={details.value} pretty={details.pretty} />
 				))}
 			</div>
+			{/* // todo this need some serious cleaning v V v */}
 			<Button
 				onClick={() => {
 					setFavorites(selectedColor);
@@ -83,4 +75,3 @@ export default function CurrentColorDrawer() {
 		<Drawer modifier="empty">no color</Drawer>
 	);
 }
-//todo look for a class called .filled and get rid of it */

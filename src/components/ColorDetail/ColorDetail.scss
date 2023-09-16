@@ -1,10 +1,3 @@
-//todo ".mock-button" rule this after mock up is done
-.mock-button {
-	aspect-ratio: 1;
-	background: var(--gray-400);
-	border-radius: var(--border-radius);
-}
-
 .color-detail {
 	// font-weight: var(--fw-semibold);
 	& > * {
