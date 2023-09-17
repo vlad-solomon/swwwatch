@@ -1,16 +1,14 @@
-// import { useState } from "react";
 import { toast } from "react-hot-toast";
 import useColor from "../../hooks/useColor";
-import { ReactComponent as Close } from "../../img/close.svg";
 import { useFavorite } from "../../stores/useFavorites";
 import { usePrevious } from "../../stores/usePrevious";
 import { useStore } from "../../stores/useStore";
 import Button from "../Button/Button";
 import ColorDetail from "../ColorDetail/ColorDetail";
 import Drawer from "../Drawer/Drawer";
-// import Tooltip from "../Tooltip/Tooltip";
 import "./CurrentColorDrawer.scss";
 import ColorShades from "../ColorShades/ColorShades";
+import Toast from "../Toast/Toast";
 
 // todo clean comments
 
@@ -41,13 +39,13 @@ export default function CurrentColorDrawer() {
 					<ColorDetail key={index} type={type} values={details.value} pretty={details.pretty} />
 				))}
 			</div>
-			{/* // todo this need some serious cleaning v V v */}
-			{/* <Button
+			<Button
+				icon={isFavorite ? "/favorite-fill.svg" : "/favorite.svg"}
 				onClick={() => {
 					setFavorites(selectedColor);
 					toast(({ id }) => (
-						<>
-							{favorites.includes(selectedColor) ? (
+						<Toast id={id}>
+							{isFavorite ? (
 								<span>
 									Removed <span className="toast__pretty">{selectedColor}</span> from favorites
 								</span>
@@ -56,25 +54,8 @@ export default function CurrentColorDrawer() {
 									Added <span className="toast__pretty">{selectedColor}</span> to favorites
 								</span>
 							)}
-							<Close onClick={() => toast.dismiss(id)} />
-						</>
+						</Toast>
 					));
-				}}
-			>
-				{favorites.includes(selectedColor) ? (
-					<>
-						<img src="/favorite-fill.svg" /> Remove from favorites
-					</>
-				) : (
-					<>
-						<img src="/favorite.svg" /> Add to favorites
-					</>
-				)}
-			</Button> */}
-			<Button
-				icon={isFavorite ? "/favorite-fill.svg" : "/favorite.svg"}
-				onClick={() => {
-					setFavorites(selectedColor);
 				}}
 			>
 				{isFavorite ? "Remove from favorites" : "Add to favorites"}
@@ -84,3 +65,5 @@ export default function CurrentColorDrawer() {
 		<Drawer modifier="empty">no color</Drawer>
 	);
 }
+
+// todo remove children prop from button and expose a text prop instead?

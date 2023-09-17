@@ -2,13 +2,14 @@ import "./App.css";
 import { useStore } from "./stores/useStore";
 import Image from "./components/Image/Image";
 import Nav from "./components/Nav/Nav";
-import Toast from "./components/Toast/Toast";
+// import Toast from "./components/Toast/Toast";
 import Overlay from "./components/Overlay/Overlay";
 
 import CurrentColorDrawer from "./components/CurrentColorDrawer/CurrentColorDrawer";
 import PreviousColorsDrawer from "./components/PreviousColorsDrawer/PreviousColorsDrawer";
 import FavoriteColorsDrawer from "./components/FavoriteColorsDrawer/FavoriteColorsDrawer";
 import PaletteDrawer from "./components/PaletteDrawer/PaletteDrawer";
+import { Toaster } from "react-hot-toast";
 
 const drawers = {
 	color: CurrentColorDrawer,
@@ -23,7 +24,14 @@ function App() {
 
 	return (
 		<>
-			<Toast />
+			<Toaster
+				gutter={10}
+				containerClassName="toaster"
+				toastOptions={{
+					className: "toast",
+					duration: 1500,
+				}}
+			/>
 			<div className="app">
 				<Image />
 				<Nav drawers={drawers} />

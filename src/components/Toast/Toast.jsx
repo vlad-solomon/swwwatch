@@ -1,9 +1,12 @@
 import "./Toast.scss";
-import { Toaster } from "react-hot-toast"
+import { toast } from "react-hot-toast";
+import { ReactComponent as Close } from "../../img/close.svg";
 
-export default function Toast() {
-    return <Toaster gutter={10} containerClassName="toaster" toastOptions={{
-        className: "toast",
-        duration: 1500
-    }} />
+export default function Toast({ children, id }) {
+	return (
+		<>
+			{children}
+			<Close onClick={() => toast.dismiss(id)} />
+		</>
+	);
 }
