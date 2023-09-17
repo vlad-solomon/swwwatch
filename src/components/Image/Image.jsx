@@ -12,7 +12,7 @@ function Image() {
 	const setUploadedImage = useStore((state) => state.setUploadedImage);
 	const setPalette = useStore((state) => state.setPalette);
 	const containerRef = useRef();
-	const setColorDrawer = useColorDrawer(null);
+	const setColorDrawer = useColorDrawer();
 
 	function handleColorPick(color) {
 		const { hex } = useColor(color);
@@ -41,10 +41,9 @@ function Image() {
 
 	async function handlePaste(event) {
 		const items = [].slice.call(event.clipboardData.items).filter((item) => item.type.indexOf("image") !== -1);
+
 		if (items.length === 0) return;
-
 		const data = URL.createObjectURL(items[0].getAsFile());
-
 		const { height, width } = await loadImage(data);
 		const palette = await prominent(data, { amount: 6, format: "hex" });
 

@@ -3,7 +3,7 @@ import useColorDrawer from "../../hooks/useColorDrawer";
 import "./ColorSquare.scss";
 
 const ColorSquare = forwardRef(({ color }, ref) => {
-	const setColorDrawer = useColorDrawer(null);
+	const setColorDrawer = useColorDrawer();
 
 	return (
 		<div

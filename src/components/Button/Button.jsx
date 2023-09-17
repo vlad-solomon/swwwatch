@@ -14,10 +14,11 @@ const buttonCVA = cva("button", {
 	},
 });
 
-const Button = forwardRef(({ children, shape, onClick }, ref) => {
+const Button = forwardRef(({ children, shape, onClick, icon }, ref) => {
 	// todo include optional parameter for icon?
 	return (
 		<div ref={ref} className={buttonCVA({ shape })} onClick={onClick}>
+			{icon && <img src={icon} />}
 			{children}
 		</div>
 	);

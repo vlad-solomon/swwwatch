@@ -25,3 +25,5 @@ export default function ColorShades({ shades, isMatching, isToggle, onClick }) {
 		</div>
 	);
 }
+
+// todo make "toggle gradient" text be visible regardless of back color

@@ -20,6 +20,7 @@ export default function CurrentColorDrawer() {
 	const favorites = useFavorite((state) => state.favorites);
 	const setFavorites = useFavorite((state) => state.setFavorites);
 	const addPrevious = usePrevious((state) => state.addPrevious);
+	const isFavorite = favorites.includes(selectedColor);
 
 	const { hex, rgb, hsl, cmyk, tints } = useColor(selectedColor);
 
@@ -41,7 +42,7 @@ export default function CurrentColorDrawer() {
 				))}
 			</div>
 			{/* // todo this need some serious cleaning v V v */}
-			<Button
+			{/* <Button
 				onClick={() => {
 					setFavorites(selectedColor);
 					toast(({ id }) => (
@@ -69,6 +70,14 @@ export default function CurrentColorDrawer() {
 						<img src="/favorite.svg" /> Add to favorites
 					</>
 				)}
+			</Button> */}
+			<Button
+				icon={isFavorite ? "/favorite-fill.svg" : "/favorite.svg"}
+				onClick={() => {
+					setFavorites(selectedColor);
+				}}
+			>
+				{isFavorite ? "Remove from favorites" : "Add to favorites"}
 			</Button>
 		</Drawer>
 	) : (

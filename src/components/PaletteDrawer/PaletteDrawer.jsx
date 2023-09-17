@@ -8,7 +8,9 @@ import useColorDrawer from "../../hooks/useColorDrawer";
 export default function PaletteDrawer() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
 	const palette = useStore((state) => state.palette);
-	const setColorDrawer = useColorDrawer(null);
+	const setColorDrawer = useColorDrawer();
+
+	// todo include the Tooltip component inside the components it's wrapping
 
 	return uploadedImage.img ? (
 		<Drawer modifier="palette">
@@ -18,7 +20,7 @@ export default function PaletteDrawer() {
 					setColorDrawer(color);
 				}}
 			/>
-			<Button>Download palette</Button>
+			<Button icon="/download.svg">Download palette</Button>
 		</Drawer>
 	) : (
 		<Drawer>no image</Drawer>
