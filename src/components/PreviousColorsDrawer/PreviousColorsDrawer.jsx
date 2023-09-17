@@ -1,7 +1,6 @@
 import "./PreviousColorsDrawer.scss";
 import Drawer from "../Drawer/Drawer";
 import ColorSquare from "../ColorSquare/ColorSquare";
-import Tooltip from "../Tooltip/Tooltip";
 
 import { usePrevious } from "../../stores/usePrevious";
 
@@ -11,9 +10,7 @@ export default function PreviousColorsDrawer() {
 	return previous.length ? (
 		<Drawer>
 			{previous.map((color) => (
-				<Tooltip key={`previous-${color}`} content={color}>
-					<ColorSquare color={color} />
-				</Tooltip>
+				<ColorSquare key={`previous-${color}`} color={color} />
 			))}
 		</Drawer>
 	) : (

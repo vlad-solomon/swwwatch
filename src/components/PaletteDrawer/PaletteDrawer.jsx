@@ -10,8 +10,6 @@ export default function PaletteDrawer() {
 	const palette = useStore((state) => state.palette);
 	const setColorDrawer = useColorDrawer();
 
-	// todo include the Tooltip component inside the components it's wrapping
-
 	return uploadedImage.img ? (
 		<Drawer modifier="palette">
 			<ColorShades
