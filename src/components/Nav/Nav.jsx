@@ -10,7 +10,7 @@ function Nav({ drawers }) {
 			{Object.entries(drawers).map(([drawer, _]) => (
 				<img
 					key={`${drawer}-drawer`}
-					src={drawer === selectedDrawer ? `/${drawer}-fill.svg\\` : `/${drawer}.svg\\`}
+					src={new URL(`../../assets/img/${drawer === selectedDrawer ? `${drawer}-fill.svg` : `${drawer}.svg`}`, import.meta.url).href}
 					onClick={() => setSelectedDrawer(drawer === selectedDrawer ? null : drawer)}
 				/>
 			))}

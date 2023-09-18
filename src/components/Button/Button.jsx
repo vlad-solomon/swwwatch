@@ -15,10 +15,9 @@ const buttonCVA = cva("button", {
 	},
 });
 
-const Button = forwardRef(({ children, shape, onClick, icon, tooltipContent }, ref) => {
-	// todo include optional parameter for icon?
+const Button = forwardRef(({ children, shape, onClick, icon, tooltip }, ref) => {
 	return (
-		<Tooltip disabled={!tooltipContent} content={tooltipContent}>
+		<Tooltip disabled={!tooltip} content={tooltip}>
 			<div ref={ref} className={buttonCVA({ shape })} onClick={onClick}>
 				{icon && <img src={icon} />}
 				{children}

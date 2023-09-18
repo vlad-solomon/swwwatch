@@ -13,7 +13,7 @@ function ColorDetail({ type, values, pretty }) {
 			</div>
 			<Button
 				shape="square"
-				tooltipContent={
+				tooltip={
 					<>
 						<span>{pretty}</span>
 						<span>Click to copy</span>
