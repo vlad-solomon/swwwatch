@@ -63,7 +63,7 @@ export default function CurrentColorDrawer() {
 			/>
 		</Drawer>
 	) : (
-		<Drawer modifier="empty">no color</Drawer>
+		<Drawer>no color</Drawer>
 	);
 }
 

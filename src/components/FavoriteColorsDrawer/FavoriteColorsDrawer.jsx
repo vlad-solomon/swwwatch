@@ -14,6 +14,6 @@ export default function FavoriteColorsDrawer() {
 			))}
 		</Drawer>
 	) : (
-		<Drawer modifier="empty">no favorite colors</Drawer>
+		<Drawer>no favorite colors</Drawer>
 	);
 }

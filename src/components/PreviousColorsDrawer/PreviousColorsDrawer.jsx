@@ -14,6 +14,6 @@ export default function PreviousColorsDrawer() {
 			))}
 		</Drawer>
 	) : (
-		<Drawer modifier="empty">no previous colors</Drawer>
+		<Drawer>no previous colors</Drawer>
 	);
 }

@@ -11,6 +11,9 @@
 	border-radius: var(--border-radius) var(--border-radius) 0 0;
 	z-index: 1;
 	&--empty {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		height: 200px;
 	}
 }

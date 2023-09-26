@@ -6,12 +6,12 @@ import Tooltip from "../Tooltip/Tooltip";
 const buttonCVA = cva("button", {
 	variants: {
 		shape: {
-			rectangle: "button--rectangle",
+			wide: "button--wide",
 			square: "button--square",
 		},
 	},
 	defaultVariants: {
-		shape: "rectangle",
+		shape: "wide",
 	},
 });
 
