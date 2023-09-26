@@ -4,6 +4,7 @@ import { useStore } from "../../stores/useStore";
 import ColorShades from "../ColorShades/ColorShades";
 import Button from "../Button/Button";
 import useColorDrawer from "../../hooks/useColorDrawer";
+// import Download from "../../assets/img/download.svg"
 
 export default function PaletteDrawer() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
@@ -18,7 +19,7 @@ export default function PaletteDrawer() {
 					setColorDrawer(color);
 				}}
 			/>
-			<Button icon="/download.svg">Download palette</Button>
+			<Button text="Download" icon="/download.svg" />
 		</Drawer>
 	) : (
 		<Drawer>no image</Drawer>

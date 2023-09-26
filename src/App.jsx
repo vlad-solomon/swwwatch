@@ -34,7 +34,7 @@ function App() {
 			/>
 			<div className="app">
 				<Image />
-				<Nav drawers={drawers} />
+				<Nav drawers={Object.keys(drawers)} />
 				{selectedDrawer && (
 					<>
 						<Overlay />

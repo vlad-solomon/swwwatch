@@ -1,8 +1,8 @@
 import "./ColorDetail.scss";
 import Button from "../Button/Button";
-import { ReactComponent as Copy } from "../../img/copy.svg";
 import toast from "react-hot-toast";
 import Toast from "../Toast/Toast";
+import Copy from "../../assets/img/copy.svg";
 
 function ColorDetail({ type, values, pretty }) {
 	return (
@@ -12,6 +12,7 @@ function ColorDetail({ type, values, pretty }) {
 				<div className="color-detail__values">{Array.isArray(values) ? values.map((value, index) => <span key={index}>{value}</span>) : <span>{values}</span>}</div>
 			</div>
 			<Button
+				icon={Copy}
 				shape="square"
 				tooltip={
 					<>
@@ -29,12 +30,11 @@ function ColorDetail({ type, values, pretty }) {
 						</Toast>
 					));
 				}}
-			>
-				<Copy />
-				{/* //todo ^ replace this with icon prop */}
-			</Button>
+			/>
 		</div>
 	);
 }
 
 export default ColorDetail;
+
+// todo check if svgo is needed anywhere

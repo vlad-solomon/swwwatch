@@ -15,12 +15,12 @@ const buttonCVA = cva("button", {
 	},
 });
 
-const Button = forwardRef(({ children, shape, onClick, icon, tooltip }, ref) => {
+const Button = forwardRef(({ text, shape, onClick, icon, tooltip }, ref) => {
 	return (
 		<Tooltip disabled={!tooltip} content={tooltip}>
 			<div ref={ref} className={buttonCVA({ shape })} onClick={onClick}>
 				{icon && <img src={icon} />}
-				{children}
+				{text}
 			</div>
 		</Tooltip>
 	);

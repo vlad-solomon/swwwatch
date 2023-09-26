@@ -7,7 +7,7 @@ function Nav({ drawers }) {
 
 	return (
 		<div className={`nav ${selectedDrawer ? "nav--drawer-open" : ""}`}>
-			{Object.entries(drawers).map(([drawer, _]) => (
+			{drawers.map((drawer) => (
 				<img
 					key={`${drawer}-drawer`}
 					src={new URL(`../../assets/img/${drawer === selectedDrawer ? `${drawer}-fill.svg` : `${drawer}.svg`}`, import.meta.url).href}

@@ -5,10 +5,12 @@ import { usePrevious } from "../../stores/usePrevious";
 import { useStore } from "../../stores/useStore";
 import Button from "../Button/Button";
 import ColorDetail from "../ColorDetail/ColorDetail";
-import Drawer from "../Drawer/Drawer";
-import "./CurrentColorDrawer.scss";
 import ColorShades from "../ColorShades/ColorShades";
+import Drawer from "../Drawer/Drawer";
 import Toast from "../Toast/Toast";
+import "./CurrentColorDrawer.scss";
+import FavoriteFilled from "../../assets/img/favorite-fill.svg";
+import Favorite from "../../assets/img/favorite.svg";
 
 // todo clean comments
 
@@ -40,7 +42,8 @@ export default function CurrentColorDrawer() {
 				))}
 			</div>
 			<Button
-				icon={isFavorite ? "/favorite-fill.svg" : "/favorite.svg"}
+				text={isFavorite ? "Remove from favorites" : "Add to favorites"}
+				icon={isFavorite ? FavoriteFilled : Favorite}
 				onClick={() => {
 					setFavorites(selectedColor);
 					toast(({ id }) => (
@@ -57,13 +60,11 @@ export default function CurrentColorDrawer() {
 						</Toast>
 					));
 				}}
-			>
-				{isFavorite ? "Remove from favorites" : "Add to favorites"}
-			</Button>
+			/>
 		</Drawer>
 	) : (
 		<Drawer modifier="empty">no color</Drawer>
 	);
 }
 
-// todo remove children prop from button and expose a text prop instead?
+// todo useToast hook?
