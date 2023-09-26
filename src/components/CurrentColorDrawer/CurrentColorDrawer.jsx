@@ -66,5 +66,3 @@ export default function CurrentColorDrawer() {
 		<Drawer>no color</Drawer>
 	);
 }
-
-// todo useToast hook?

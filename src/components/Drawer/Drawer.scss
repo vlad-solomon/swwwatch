@@ -1,6 +1,6 @@
 .drawer {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
 	position: absolute;
 	background-color: var(--gray-500);
 	padding: 15px 15px 25px 15px;
@@ -10,6 +10,8 @@
 	right: 10px;
 	border-radius: var(--border-radius) var(--border-radius) 0 0;
 	z-index: 1;
+	max-height: 480px;
+	overflow: auto;
 	&--empty {
 		display: flex;
 		justify-content: center;

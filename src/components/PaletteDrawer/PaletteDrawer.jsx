@@ -25,3 +25,5 @@ export default function PaletteDrawer() {
 		<Drawer>no image</Drawer>
 	);
 }
+
+//todo download palette component
