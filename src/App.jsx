@@ -34,7 +34,7 @@ function App() {
 				}}
 			/>
 			<div className="app">
-				<Palette />
+				{/* <Palette /> */}
 				<Image />
 				<Nav drawers={Object.keys(drawers)} />
 				{selectedDrawer && (

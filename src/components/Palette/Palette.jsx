@@ -2,13 +2,14 @@ import "./Palette.scss";
 import ColorShades from "../ColorShades/ColorShades";
 import { useStore } from "../../stores/useStore";
 import Logo from "../../assets/img/logo.svg";
+import { forwardRef } from "react";
 
-export default function Palette() {
+const Palette = forwardRef(({ palette }, ref) => {
 	// const palette = useStore((state) => state.palette);
-	const palette = ["#111", "#222", "#333", "#444", "#555", "#666"];
+	// const palette = ["#111", "#222", "#333", "#444", "#555", "#666"];
 
 	return (
-		<div className="palette">
+		<div className="palette" ref={ref}>
 			<ColorShades shades={palette} isColorCode={true} />
 			<div className="palette__footer">
 				<div className="palette__branding">
@@ -18,4 +19,6 @@ export default function Palette() {
 			</div>
 		</div>
 	);
-}
+});
+
+export default Palette;
