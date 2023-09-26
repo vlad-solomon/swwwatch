@@ -2,9 +2,7 @@ import "./App.css";
 import { useStore } from "./stores/useStore";
 import Image from "./components/Image/Image";
 import Nav from "./components/Nav/Nav";
-// import Toast from "./components/Toast/Toast";
 import Overlay from "./components/Overlay/Overlay";
-import Palette from "./components/Palette/Palette";
 
 import CurrentColorDrawer from "./components/CurrentColorDrawer/CurrentColorDrawer";
 import PreviousColorsDrawer from "./components/PreviousColorsDrawer/PreviousColorsDrawer";
@@ -34,7 +32,6 @@ function App() {
 				}}
 			/>
 			<div className="app">
-				{/* <Palette /> */}
 				<Image />
 				<Nav drawers={Object.keys(drawers)} />
 				{selectedDrawer && (

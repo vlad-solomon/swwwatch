@@ -1,13 +1,9 @@
 import "./Palette.scss";
-import ColorShades from "../ColorShades/ColorShades";
-import { useStore } from "../../stores/useStore";
-import Logo from "../../assets/img/logo.svg";
 import { forwardRef } from "react";
+import ColorShades from "../ColorShades/ColorShades";
+import Logo from "../../assets/img/logo.svg";
 
 const Palette = forwardRef(({ palette }, ref) => {
-	// const palette = useStore((state) => state.palette);
-	// const palette = ["#111", "#222", "#333", "#444", "#555", "#666"];
-
 	return (
 		<div className="palette" ref={ref}>
 			<ColorShades shades={palette} isColorCode={true} />

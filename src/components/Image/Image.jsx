@@ -53,7 +53,7 @@ function Image() {
 
 	useEffect(() => {
 		const removedElements = document.querySelectorAll("div[data-testid='color-preview'], div[data-testid='zoom-preview-container']");
-		removedElements.forEach((removedElement) => removedElement.parentNode.removeChild(removedElement));
+		removedElements.forEach((removedElement) => removedElement.parentNode.removeChild(removedElement)); //todo use remove() instead?
 		// todo research if i can use color-preview the way i designed it in the figma file
 		handleResize(uploadedImage.height, uploadedImage.width);
 
