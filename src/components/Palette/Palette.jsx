@@ -8,7 +8,7 @@ export default function Palette() {
 
 	return (
 		<div className="palette">
-			<ColorShades shades={palette} />
+			<ColorShades shades={palette} isColorCode={true} />
 			<div className="palette__footer">
 				<div className="palette__branding">
 					<span>L O G O</span>

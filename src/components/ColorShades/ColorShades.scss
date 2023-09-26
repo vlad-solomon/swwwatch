@@ -26,9 +26,16 @@
 		left: 0;
 	}
 	&__shade {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		padding-bottom: 10px;
 		height: 100%;
 		flex: 1;
 		cursor: pointer;
+		span {
+			font-size: 12px;
+		}
 		&--selected-color {
 			flex: 2.5;
 			pointer-events: none;

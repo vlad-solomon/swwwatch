@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./ColorShades.scss";
 import { useStore } from "../../stores/useStore";
 
-export default function ColorShades({ shades, isMatching, isToggle, onClick }) {
+export default function ColorShades({ shades, isMatching, isToggle, isColorCode, onClick }) {
 	const selectedColor = useStore((state) => state.selectedColor);
 	const [isGradient, setIsGradient] = useState(false);
 
@@ -11,7 +11,10 @@ export default function ColorShades({ shades, isMatching, isToggle, onClick }) {
 		<div className="color-shades">
 			{shades?.map((color, index) => (
 				<Tooltip key={index} content={color}>
-					<div className={`color-shades__shade ${color === selectedColor ? isMatching : ""}`} style={{ backgroundColor: color }} onClick={() => onClick(color)}></div>
+					<div className={`color-shades__shade ${color === selectedColor ? isMatching : ""}`} style={{ backgroundColor: color }} onClick={() => onClick(color)}>
+						{isColorCode && <span>{color}</span>}
+						{/* //todo this text will need to be either white or black depending on the color it's overlapping */}
+					</div>
 				</Tooltip>
 			))}
 			{isToggle && (
