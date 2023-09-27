@@ -34,11 +34,13 @@ export default function PaletteDrawer() {
 	}
 
 	return uploadedImage.img ? (
-		<Drawer modifier="palette">
-			<ColorShades shades={palette} onClick={(color) => setColorDrawer(color)} />
-			<Button text="Download" icon={Download} onClick={handleDownload} />
+		<>
 			<Palette palette={palette} ref={paletteRef} />
-		</Drawer>
+			<Drawer modifier="palette">
+				<ColorShades shades={palette} onClick={(color) => setColorDrawer(color)} />
+				<Button text="Download" icon={Download} onClick={handleDownload} />
+			</Drawer>
+		</>
 	) : (
 		<Drawer>no image</Drawer>
 	);

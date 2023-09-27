@@ -18,3 +18,5 @@ const Palette = forwardRef(({ palette }, ref) => {
 });
 
 export default Palette;
+
+//todo rework logo
