@@ -8,6 +8,7 @@ import useColorDrawer from "../../hooks/useColorDrawer";
 import Palette from "../Palette/Palette";
 import Download from "../../assets/img/download.svg";
 import html2canvas from "html2canvas";
+import { format } from "date-fns";
 
 export default function PaletteDrawer() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
@@ -15,7 +16,6 @@ export default function PaletteDrawer() {
 	const setColorDrawer = useColorDrawer();
 	const paletteRef = useRef();
 
-	//todo clean this up
 	function handleDownload() {
 		html2canvas(paletteRef.current, { backgroundColor: null, scale: 5 }).then((canvas) => {
 			canvas.setAttribute("id", "palette-canvas");
@@ -24,7 +24,7 @@ export default function PaletteDrawer() {
 			const link = document.createElement("a");
 			if (typeof link.download === "string") {
 				link.href = palette;
-				link.download = `Generated theme.png`; //todo add time of generation: YYYY.MM.DD - HH.MM
+				link.download = `${format(new Date(), "yyyy.MM.dd - HH.mm.ss")}.png`;
 				document.body.appendChild(link);
 				link.click();
 				document.body.removeChild(link);
@@ -43,5 +43,3 @@ export default function PaletteDrawer() {
 		<Drawer>no image</Drawer>
 	);
 }
-
-//todo download palette component

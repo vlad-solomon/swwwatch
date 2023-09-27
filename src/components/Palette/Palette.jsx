@@ -10,7 +10,7 @@ const Palette = forwardRef(({ palette }, ref) => {
 			<div className="palette__footer">
 				<div className="palette__branding">
 					<img src={Logo} alt="logo" />
-					<span>example.com</span>
+					<span>vlad-solomon.github.io/swwwatch.me</span>
 				</div>
 			</div>
 		</div>
