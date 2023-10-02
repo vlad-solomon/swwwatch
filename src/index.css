@@ -30,8 +30,6 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
-
-	/* todo add box-shadow variables (also other variables from the old project)*/
 }
 
 *,

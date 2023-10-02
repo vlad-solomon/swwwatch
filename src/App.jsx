@@ -17,6 +17,8 @@ const drawers = {
 	palette: PaletteDrawer,
 };
 
+//todo favicon
+
 function App() {
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
 	const SelectedDrawerComponent = drawers[selectedDrawer];
