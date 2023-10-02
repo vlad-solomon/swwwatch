@@ -1,6 +1,4 @@
 import { create } from "zustand";
-import test from "../img/test.png";
-import cat from "../img/cat.jpg";
 
 export const useStore = create((set) => ({
 	uploadedImage: { img: null, height: null, width: null },

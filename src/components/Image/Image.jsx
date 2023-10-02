@@ -2,7 +2,7 @@ import "./Image.scss";
 import { useEffect, useRef } from "react";
 import { useStore } from "../../stores/useStore";
 import { ImageColorPicker } from "react-image-color-picker";
-import { ReactComponent as Welcome } from "../../img/welcome.svg";
+import Welcome from "./welcome.svg";
 import useColor from "../../hooks/useColor";
 import { prominent } from "color.js";
 import useColorDrawer from "../../hooks/useColorDrawer";
@@ -74,7 +74,7 @@ function Image() {
 		</div>
 	) : (
 		<div className="image image--welcome">
-			<Welcome />
+			<img src={Welcome} alt="welcome" />
 			<span>Paste or drag and drop your image here</span>
 		</div>
 	);

@@ -36,5 +36,3 @@ function ColorDetail({ type, values, pretty }) {
 }
 
 export default ColorDetail;
-
-// todo check if svgo is needed anywhere
