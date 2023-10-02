@@ -48,7 +48,7 @@ function Image() {
 		const palette = await prominent(data, { amount: 6, format: "hex" });
 
 		setUploadedImage(data, height, width);
-		setPalette(palette);
+		setPalette(palette.length === 1 ? [palette] : palette);
 	}
 
 	useEffect(() => {
