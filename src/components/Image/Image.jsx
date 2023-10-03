@@ -1,11 +1,12 @@
 import "./Image.scss";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { useStore } from "../../stores/useStore";
 import { ImageColorPicker } from "react-image-color-picker";
 import Welcome from "./welcome.svg";
 import useColor from "../../hooks/useColor";
 import { prominent } from "color.js";
 import useColorDrawer from "../../hooks/useColorDrawer";
+import { useDropzone } from "react-dropzone";
 
 function Image() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
@@ -18,6 +19,22 @@ function Image() {
 		const { hex } = useColor(color);
 		setColorDrawer(hex.value);
 	}
+
+	const { getRootProps, getInputProps, isDragAccept } = useDropzone({
+		accept: {
+			"image/*": [], //todo preferably all rasterized formats (so no vectors)
+		},
+		onDropAccepted: async (acceptedFiles) => {
+			// todo this code repeats
+			console.log(acceptedFiles);
+			const img = URL.createObjectURL(acceptedFiles[0]);
+			const { height, width } = await loadImage(img);
+			const palette = await prominent(img, { amount: 6, format: "hex" });
+
+			setUploadedImage(img, height, width);
+			setPalette(palette.length === 1 ? [palette] : palette);
+		},
+	});
 
 	async function loadImage(src) {
 		return new Promise((resolve, reject) => {
@@ -74,8 +91,11 @@ function Image() {
 		</div>
 	) : (
 		<div className="image image--welcome">
-			<img src={Welcome} alt="welcome" />
-			<span>Paste or drag and drop your image here</span>
+			<div {...getRootProps({ className: "image__dropzone", style: { ...(isDragAccept ? { backgroundColor: "rgba(255,255,255,0.05" } : {}) } })}>
+				<input {...getInputProps()} />
+				<img src={Welcome} alt="welcome" />
+				<span>Paste or drag and drop your image here</span>
+			</div>
 		</div>
 	);
 }

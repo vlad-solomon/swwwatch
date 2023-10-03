@@ -7,6 +7,7 @@ function Nav({ drawers }) {
 
 	return (
 		<div className={`nav ${selectedDrawer ? "nav--drawer-open" : ""}`}>
+			{/* //todo instead of only making the img clickable, set up buttons that occupy the entire possible width of the nav */}
 			{drawers.map((drawer) => (
 				<img
 					key={`${drawer}-drawer`}

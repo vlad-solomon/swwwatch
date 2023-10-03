@@ -18,3 +18,5 @@ const Palette = forwardRef(({ palette }, ref) => {
 });
 
 export default Palette;
+
+// todo because has width set to 480px, when resizing below that value it causes overflow
