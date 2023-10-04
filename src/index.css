@@ -42,4 +42,19 @@
 body {
 	margin: 0;
 	display: flex;
+	overflow: hidden;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--gray-400);
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--gray-600);
 }

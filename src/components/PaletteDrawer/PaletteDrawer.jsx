@@ -45,5 +45,3 @@ export default function PaletteDrawer() {
 		<Drawer>no image</Drawer>
 	);
 }
-
-// todo create overlapping scrollbars for the overflowing drawers
