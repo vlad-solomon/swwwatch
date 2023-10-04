@@ -1,5 +1,5 @@
 import "./Image.scss";
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import { useStore } from "../../stores/useStore";
 import { ImageColorPicker } from "react-image-color-picker";
 import Welcome from "./welcome.svg";
@@ -26,6 +26,7 @@ function Image() {
 		},
 		onDropAccepted: async (acceptedFiles) => {
 			// todo this code repeats
+			// ? so this can be turned into a function that deals with file uploads
 			console.log(acceptedFiles);
 			const img = URL.createObjectURL(acceptedFiles[0]);
 			const { height, width } = await loadImage(img);
@@ -36,6 +37,7 @@ function Image() {
 		},
 	});
 
+	//todo create useLoadImage hook
 	async function loadImage(src) {
 		return new Promise((resolve, reject) => {
 			const img = document.createElement("img");
@@ -43,17 +45,6 @@ function Image() {
 			img.onload = () => resolve({ height: img.height, width: img.width });
 			img.onerror = reject;
 		});
-	}
-
-	function handleResize(height, width) {
-		if (!containerRef.current) return;
-
-		const canvas = containerRef.current.querySelector("canvas");
-		const hScale = containerRef.current.clientHeight / height;
-		const wScale = containerRef.current.clientWidth / width;
-		const scale = Math.min(wScale, hScale);
-
-		canvas.style.transform = `scale(${scale})`;
 	}
 
 	async function handlePaste(event) {
@@ -83,6 +74,17 @@ function Image() {
 			window.removeEventListener("resize", handleResize);
 		};
 	}, [uploadedImage.img]);
+
+	function handleResize(height, width) {
+		if (!containerRef.current) return;
+
+		const canvas = containerRef.current.querySelector("canvas");
+		const hScale = containerRef.current.clientHeight / height;
+		const wScale = containerRef.current.clientWidth / width;
+		const scale = Math.min(wScale, hScale);
+
+		canvas.style.transform = `scale(${scale})`;
+	}
 
 	return uploadedImage.img ? (
 		<div className="image" ref={containerRef}>
