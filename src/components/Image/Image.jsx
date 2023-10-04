@@ -22,7 +22,10 @@ function Image() {
 
 	const { getRootProps, getInputProps, isDragAccept } = useDropzone({
 		accept: {
-			"image/*": [], //todo preferably all rasterized formats (so no vectors)
+			"image/png": [],
+			"image/jpeg": [],
+			"image/jpg": [],
+			"image/gif": [],
 		},
 		onDropAccepted: async (acceptedFiles) => {
 			// todo this code repeats
@@ -37,6 +40,7 @@ function Image() {
 		},
 	});
 
+	//todo only accept the types of image that the dropzone accepts
 	//todo create useLoadImage hook
 	async function loadImage(src) {
 		return new Promise((resolve, reject) => {
@@ -93,6 +97,7 @@ function Image() {
 		</div>
 	) : (
 		<div className="image image--welcome">
+			{/* //todo add badges with the accepted types of images */}
 			<div {...getRootProps({ className: "image__dropzone", style: { ...(isDragAccept ? { backgroundColor: "rgba(255,255,255,0.05" } : {}) } })}>
 				<input {...getInputProps()} />
 				<img src={Welcome} alt="welcome" />
@@ -103,3 +108,5 @@ function Image() {
 }
 
 export default Image;
+
+//? get rid of the paste functionality?
