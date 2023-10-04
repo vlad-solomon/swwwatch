@@ -2,6 +2,7 @@ import "./FavoriteColorsDrawer.scss";
 import Drawer from "../Drawer/Drawer";
 import ColorSquare from "../ColorSquare/ColorSquare";
 import { useFavorite } from "../../stores/useFavorites";
+import Favorite from "../../assets/img/favorite.svg";
 
 export default function FavoriteColorsDrawer() {
 	const favorites = useFavorite((state) => state.favorites);
@@ -13,6 +14,9 @@ export default function FavoriteColorsDrawer() {
 			))}
 		</Drawer>
 	) : (
-		<Drawer>no favorite colors</Drawer>
+		<Drawer>
+			<img src={Favorite} alt="favorite" />
+			<span>Use the favorite button to save any color you like</span>
+		</Drawer>
 	);
 }

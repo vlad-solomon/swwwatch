@@ -11,6 +11,7 @@ import Toast from "../Toast/Toast";
 import "./CurrentColorDrawer.scss";
 import FavoriteFilled from "../../assets/img/favorite-fill.svg";
 import Favorite from "../../assets/img/favorite.svg";
+import Color from "../../assets/img/color.svg";
 
 // todo clean comments
 
@@ -63,6 +64,9 @@ export default function CurrentColorDrawer() {
 			/>
 		</Drawer>
 	) : (
-		<Drawer>no color</Drawer>
+		<Drawer>
+			<img src={Color} alt="color" />
+			<span>Upload and tap on an image to select a color and see its details</span>
+		</Drawer>
 	);
 }

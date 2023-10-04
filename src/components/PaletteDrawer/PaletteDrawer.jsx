@@ -7,6 +7,7 @@ import Button from "../Button/Button";
 import useColorDrawer from "../../hooks/useColorDrawer";
 import Palette from "../Palette/Palette";
 import Download from "../../assets/img/download.svg";
+import PaletteIcon from "../../assets/img/palette.svg";
 import html2canvas from "html2canvas";
 import { format } from "date-fns";
 
@@ -42,6 +43,9 @@ export default function PaletteDrawer() {
 			</Drawer>
 		</>
 	) : (
-		<Drawer>no image</Drawer>
+		<Drawer>
+			<img src={PaletteIcon} alt="palette" />
+			<span>Upload an image to generate and download a palette of colors</span>
+		</Drawer>
 	);
 }

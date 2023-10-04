@@ -16,6 +16,15 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 200px;
+		flex-direction: column;
+		height: 250px;
+		img {
+			height: 60px;
+			opacity: 0.5;
+		}
+		span {
+			text-align: center;
+			max-width: 250px;
+		}
 	}
 }

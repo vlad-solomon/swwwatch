@@ -1,7 +1,7 @@
 import "./PreviousColorsDrawer.scss";
 import Drawer from "../Drawer/Drawer";
 import ColorSquare from "../ColorSquare/ColorSquare";
-
+import Previous from "../../assets/img/previous.svg";
 import { usePrevious } from "../../stores/usePrevious";
 
 export default function PreviousColorsDrawer() {
@@ -14,6 +14,9 @@ export default function PreviousColorsDrawer() {
 			))}
 		</Drawer>
 	) : (
-		<Drawer>no previous colors</Drawer>
+		<Drawer>
+			<img src={Previous} alt="previous" />
+			<span>Any previously selected colors will be saved here</span>
+		</Drawer>
 	);
 }
