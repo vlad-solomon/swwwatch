@@ -10,15 +10,31 @@
 		border-radius: 0 0 var(--border-radius) var(--border-radius);
 	}
 	&__option {
+		position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex: 1;
 		cursor: pointer;
-		&:hover {
-			background-color: var(--gray-500);
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: 0;
+			height: 3px;
+			width: 40%;
+			background-color: var(--white-text);
+			border-radius: 10px 10px 0 0;
+			opacity: 0;
+		}
+		&:not(.nav__option--active):hover {
+			&::before {
+				opacity: 0.2;
+			}
+		}
+		&--active::before {
+			opacity: 1;
+			width: 70%;
 		}
 	}
 }
-
-//todo active state
