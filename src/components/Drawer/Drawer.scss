@@ -10,21 +10,37 @@
 	right: 10px;
 	border-radius: var(--border-radius) var(--border-radius) 0 0;
 	z-index: 1;
-	max-height: 480px;
+	max-height: 480px; //todo min-width for all drawers?
 	overflow: auto;
 	&--empty {
+		gap: unset;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
 		height: 250px;
 		img {
-			height: 60px;
+			height: 100px;
 			opacity: 0.5;
 		}
 		span {
+			position: relative;
 			text-align: center;
+			z-index: 1;
 			max-width: 250px;
+			margin-top: -25px;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			pointer-events: none;
+			top: 0;
+			left: 0;
+			display: block;
+			height: 75%;
+			width: 100%;
+			background: linear-gradient(180deg, transparent, var(--gray-500) 90%);
 		}
 	}
 }
