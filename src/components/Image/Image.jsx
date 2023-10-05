@@ -7,6 +7,7 @@ import useColor from "../../hooks/useColor";
 import { prominent } from "color.js";
 import useColorDrawer from "../../hooks/useColorDrawer";
 import { useDropzone } from "react-dropzone";
+import useLoadImage from "../../hooks/useLoadImage";
 
 function Image() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
@@ -26,7 +27,7 @@ function Image() {
 		if (!supportedTypes.includes(blob.type)) return;
 
 		const img = blob.kind === "file" ? URL.createObjectURL(blob.getAsFile()) : URL.createObjectURL(blob);
-		const { height, width } = await loadImage(img);
+		const { height, width } = await useLoadImage(img);
 		const palette = await prominent(img, { amount: 6, format: "hex" });
 
 		setUploadedImage(img, height, width);
@@ -44,16 +45,6 @@ function Image() {
 			handleImageUpload(acceptedFiles[0]);
 		},
 	});
-
-	//todo create useLoadImage hook
-	async function loadImage(src) {
-		return new Promise((resolve, reject) => {
-			const img = document.createElement("img");
-			img.src = src;
-			img.onload = () => resolve({ height: img.height, width: img.width });
-			img.onerror = reject;
-		});
-	}
 
 	useEffect(() => {
 		const removedElements = document.querySelectorAll("div[data-testid='color-preview'], div[data-testid='zoom-preview-container']");
@@ -101,4 +92,4 @@ function Image() {
 
 export default Image;
 
-//? get rid of the paste functionality?
+//todo get rid of the paste functionality? | if there's already an image prevent paste
