@@ -7,7 +7,7 @@ const ColorSquare = forwardRef(({ color }, ref) => {
 	const setColorDrawer = useColorDrawer();
 
 	return (
-		<Tooltip content={color} appendTo="parent">
+		<Tooltip content={color}>
 			<div ref={ref} className="color-square" style={{ backgroundColor: color }} onClick={() => setColorDrawer(color)}></div>
 		</Tooltip>
 	);
