@@ -28,5 +28,3 @@ export default function ColorShades({ shades, isMatching, isToggle, isColorCode,
 		</div>
 	);
 }
-
-//todo add the outline to the gradient also?

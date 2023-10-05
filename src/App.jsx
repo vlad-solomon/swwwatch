@@ -50,4 +50,4 @@ function App() {
 
 export default App;
 
-// todo design empty states
+// todo add way to reset image
