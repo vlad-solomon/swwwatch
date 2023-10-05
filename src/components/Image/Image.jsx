@@ -15,32 +15,36 @@ function Image() {
 	const containerRef = useRef();
 	const setColorDrawer = useColorDrawer();
 
+	const supportedTypes = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
+
 	function handleColorPick(color) {
 		const { hex } = useColor(color);
 		setColorDrawer(hex.value);
 	}
 
-	const { getRootProps, getInputProps, isDragAccept } = useDropzone({
-		accept: {
-			"image/png": [],
-			"image/jpeg": [],
-			"image/jpg": [],
-			"image/gif": [],
-		},
-		onDropAccepted: async (acceptedFiles) => {
-			// todo this code repeats
-			// ? so this can be turned into a function that deals with file uploads
-			console.log(acceptedFiles);
-			const img = URL.createObjectURL(acceptedFiles[0]);
-			const { height, width } = await loadImage(img);
-			const palette = await prominent(img, { amount: 6, format: "hex" });
+	async function handleImageUpload(blob) {
+		if (!supportedTypes.includes(blob.type)) return;
 
-			setUploadedImage(img, height, width);
-			setPalette(palette.length === 1 ? [palette] : palette);
+		const img = blob.kind === "file" ? URL.createObjectURL(blob.getAsFile()) : URL.createObjectURL(blob);
+		const { height, width } = await loadImage(img);
+		const palette = await prominent(img, { amount: 6, format: "hex" });
+
+		setUploadedImage(img, height, width);
+		setPalette(palette.length === 1 ? [palette] : palette);
+	}
+
+	async function handlePaste(event) {
+		const items = [].slice.call(event.clipboardData.items).filter((item) => item.type.indexOf("image") !== -1);
+		handleImageUpload(items[0]);
+	}
+
+	const { getRootProps, getInputProps, isDragAccept } = useDropzone({
+		accept: Object.fromEntries(supportedTypes.map((type) => [type, []])),
+		onDropAccepted: async (acceptedFiles) => {
+			handleImageUpload(acceptedFiles[0]);
 		},
 	});
 
-	//todo only accept the types of image that the dropzone accepts
 	//todo create useLoadImage hook
 	async function loadImage(src) {
 		return new Promise((resolve, reject) => {
@@ -49,18 +53,6 @@ function Image() {
 			img.onload = () => resolve({ height: img.height, width: img.width });
 			img.onerror = reject;
 		});
-	}
-
-	async function handlePaste(event) {
-		const items = [].slice.call(event.clipboardData.items).filter((item) => item.type.indexOf("image") !== -1);
-
-		if (items.length === 0) return;
-		const data = URL.createObjectURL(items[0].getAsFile());
-		const { height, width } = await loadImage(data);
-		const palette = await prominent(data, { amount: 6, format: "hex" });
-
-		setUploadedImage(data, height, width);
-		setPalette(palette.length === 1 ? [palette] : palette);
 	}
 
 	useEffect(() => {
