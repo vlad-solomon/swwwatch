@@ -11,6 +11,9 @@
 		img {
 			height: 1.15em;
 		}
+		&:hover {
+			background-color: var(--gray-400);
+		}
 	}
 	&--square {
 		aspect-ratio: 1;

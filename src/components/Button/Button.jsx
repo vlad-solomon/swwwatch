@@ -27,5 +27,3 @@ const Button = forwardRef(({ text, shape, onClick, icon, tooltip }, ref) => {
 });
 
 export default Button;
-
-//todo add hover states to button
