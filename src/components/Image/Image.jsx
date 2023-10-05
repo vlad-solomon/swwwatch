@@ -35,6 +35,7 @@ function Image() {
 	}
 
 	async function handlePaste(event) {
+		if (uploadedImage.img !== null) return;
 		const items = [].slice.call(event.clipboardData.items).filter((item) => item.type.indexOf("image") !== -1);
 		handleImageUpload(items[0]);
 	}
@@ -97,5 +98,3 @@ function Image() {
 }
 
 export default Image;
-
-//todo get rid of the paste functionality? | if there's already an image prevent paste
