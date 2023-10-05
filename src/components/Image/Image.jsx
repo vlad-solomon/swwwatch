@@ -16,7 +16,7 @@ function Image() {
 	const containerRef = useRef();
 	const setColorDrawer = useColorDrawer();
 
-	const supportedTypes = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
+	const supportedTypes = ["image/png", "image/jpg", "image/jpeg", "image/gif"];
 
 	function handleColorPick(color) {
 		const { hex } = useColor(color);
@@ -80,7 +80,13 @@ function Image() {
 		</div>
 	) : (
 		<div className="image image--welcome">
-			{/* //todo add badges with the accepted types of images */}
+			<div className="image__types">
+				{supportedTypes.map((type) => (
+					<div key={type} className="image__type">
+						{type.split("/")[1]}
+					</div>
+				))}
+			</div>
 			<div {...getRootProps({ className: "image__dropzone", style: { ...(isDragAccept ? { backgroundColor: "rgba(255,255,255,0.05" } : {}) } })}>
 				<input {...getInputProps()} />
 				<img src={Welcome} alt="welcome" />

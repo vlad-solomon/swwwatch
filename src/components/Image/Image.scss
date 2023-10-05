@@ -33,6 +33,24 @@
 			opacity: 0.8;
 		}
 	}
+	&__types {
+		pointer-events: none;
+		opacity: 0.8;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		display: flex;
+		gap: 8px;
+	}
+	&__type {
+		text-transform: uppercase;
+		line-height: 1.8;
+		font-size: var(--fs-s);
+		font-weight: var(--fw-regular);
+		border: 2px solid var(--gray-400);
+		border-radius: 3px;
+		padding: 0px 5px;
+	}
 	&--welcome {
 		border: 2px dashed var(--gray-400);
 	}
