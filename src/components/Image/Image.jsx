@@ -88,7 +88,7 @@ function Image() {
 					</div>
 				))}
 			</div>
-			<div {...getRootProps({ className: "image__dropzone", style: { ...(isDragAccept ? { backgroundColor: "rgba(255,255,255,0.05" } : {}) } })}>
+			<div {...getRootProps({ className: "image__dropzone", style: { ...(isDragAccept ? { backgroundColor: "rgba(255,255,255,0.05", transform: "scale(1.1)" } : {}) } })}>
 				<input {...getInputProps()} />
 				<img src={Welcome} alt="welcome" />
 				<span>Paste or drag and drop your image here</span>
@@ -98,3 +98,5 @@ function Image() {
 }
 
 export default Image;
+
+//todo redo welcome in the style of empty states

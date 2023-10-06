@@ -1,4 +1,9 @@
 .drawer--palette {
 	display: flex;
 	flex-direction: column;
+	height: 250px;
+	.color-shades {
+		height: unset;
+		flex: 1;
+	}
 }

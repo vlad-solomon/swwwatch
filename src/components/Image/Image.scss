@@ -24,13 +24,29 @@
 		align-items: center;
 		height: 100%;
 		width: 100%;
-		gap: 10px;
 		flex-direction: column;
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			pointer-events: none;
+			top: 0;
+			left: 0;
+			display: block;
+			height: 105%;
+			width: 100%;
+			background: linear-gradient(180deg, transparent, var(--gray-600) 55%);
+		}
+		img {
+			height: 100px;
+		}
 		span {
+			position: relative;
+			z-index: 1;
 			width: 155px;
 			text-align: center;
-			font-weight: var(--fw-regular);
-			opacity: 0.8;
+			margin-top: -25px;
+			margin-bottom: 10px;
 		}
 	}
 	&__types {
