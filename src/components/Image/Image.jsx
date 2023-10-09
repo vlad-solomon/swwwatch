@@ -13,6 +13,7 @@ function Image() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
 	const setUploadedImage = useStore((state) => state.setUploadedImage);
 	const setPalette = useStore((state) => state.setPalette);
+	const clearUploadedImage = useStore((state) => state.clearUploadedImage);
 	const containerRef = useRef();
 	const setColorDrawer = useColorDrawer();
 
@@ -31,7 +32,7 @@ function Image() {
 		const palette = await prominent(img, { amount: 6, format: "hex" });
 
 		setUploadedImage(img, height, width);
-		setPalette(palette.length === 1 ? [palette] : palette);
+		setPalette(Array.isArray(palette) ? palette : [palette]);
 	}
 
 	async function handlePaste(event) {
@@ -48,10 +49,10 @@ function Image() {
 	});
 
 	useEffect(() => {
+		handleResize(uploadedImage.height, uploadedImage.width);
+
 		const removedElements = document.querySelectorAll("div[data-testid='color-preview'], div[data-testid='zoom-preview-container']");
 		removedElements.forEach((removedElement) => removedElement.remove());
-		// todo research if i can use color-preview the way i designed it in the figma file
-		handleResize(uploadedImage.height, uploadedImage.width);
 
 		document.addEventListener("paste", handlePaste);
 		window.addEventListener("resize", () => {
@@ -76,6 +77,9 @@ function Image() {
 
 	return uploadedImage.img ? (
 		<div className="image" ref={containerRef}>
+			<div className="image__clear" onClick={clearUploadedImage}>
+				&times;
+			</div>
 			<img src={uploadedImage.img} className="image__bg" />
 			<ImageColorPicker onColorPick={handleColorPick} imgSrc={uploadedImage.img} />
 		</div>
@@ -98,5 +102,3 @@ function Image() {
 }
 
 export default Image;
-
-//todo redo welcome in the style of empty states

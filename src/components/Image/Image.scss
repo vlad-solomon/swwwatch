@@ -6,6 +6,23 @@
 	flex: 1 0 0;
 	border-radius: var(--border-radius);
 	overflow: hidden;
+	&__clear {
+		top: -4px;
+		right: -4px;
+		position: absolute;
+		font-size: var(--fs-xl);
+		font-weight: var(--fw-regular);
+		height: 25px;
+		width: 25px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--gray-400);
+		opacity: 1;
+		z-index: 1;
+		border-radius: 0 0 0 var(--border-radius);
+		cursor: pointer;
+	}
 	&__bg {
 		--_size: 15%;
 		position: absolute;
