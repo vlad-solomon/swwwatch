@@ -42,6 +42,20 @@
 		height: 100%;
 		width: 100%;
 		flex-direction: column;
+		&--is-drag {
+			scale: 1.1;
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				display: block;
+				height: 100%;
+				width: 100%;
+				background: radial-gradient(transparent, rgba(255, 255, 255, 0.04));
+			}
+		}
 		&::before {
 			content: "";
 			position: absolute;
@@ -94,6 +108,7 @@
 		object-fit: none;
 		cursor: crosshair;
 		z-index: unset;
+		box-shadow: 0 0 100px 0 rgba(41, 44, 57, 0.25);
 	}
 	[data-testid="image-color-pick-container"] {
 		position: relative;

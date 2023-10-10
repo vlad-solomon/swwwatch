@@ -92,7 +92,7 @@ function Image() {
 					</div>
 				))}
 			</div>
-			<div {...getRootProps({ className: "image__dropzone", style: { ...(isDragAccept ? { backgroundColor: "rgba(255,255,255,0.05", transform: "scale(1.1)" } : {}) } })}>
+			<div {...getRootProps({ className: `image__dropzone ${isDragAccept ? "image__dropzone--is-drag" : ""}` })}>
 				<input {...getInputProps()} />
 				<img src={Welcome} alt="welcome" />
 				<span>Paste or drag and drop your image here</span>
