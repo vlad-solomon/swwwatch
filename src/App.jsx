@@ -49,5 +49,3 @@ function App() {
 }
 
 export default App;
-
-// todo add way to reset image
