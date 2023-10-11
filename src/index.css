@@ -39,10 +39,21 @@
 	user-select: none;
 }
 
+a,
+a:visited,
+a:active,
+a:link {
+	color: currentColor;
+	text-decoration: none;
+	font-weight: var(--fw-semibold);
+}
+
 body {
 	margin: 0;
 	display: flex;
-	overflow: hidden;
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 ::-webkit-scrollbar {

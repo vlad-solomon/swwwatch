@@ -25,7 +25,7 @@ function Image() {
 	}
 
 	async function handleImageUpload(blob) {
-		if (!supportedTypes.includes(blob.type)) return;
+		if (!blob || !supportedTypes.includes(blob.type)) return;
 
 		const img = blob.kind === "file" ? URL.createObjectURL(blob.getAsFile()) : URL.createObjectURL(blob);
 		const { height, width } = await useLoadImage(img);
@@ -37,7 +37,7 @@ function Image() {
 
 	async function handlePaste(event) {
 		if (uploadedImage.img !== null) return;
-		const items = [].slice.call(event.clipboardData.items).filter((item) => item.type.indexOf("image") !== -1);
+		const items = [...event.clipboardData.items].filter((item) => item.type.indexOf("image") !== -1);
 		handleImageUpload(items[0]);
 	}
 

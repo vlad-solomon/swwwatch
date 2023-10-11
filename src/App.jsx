@@ -3,7 +3,7 @@ import { useStore } from "./stores/useStore";
 import Image from "./components/Image/Image";
 import Nav from "./components/Nav/Nav";
 import Overlay from "./components/Overlay/Overlay";
-
+import Footer from "./components/Footer/Footer";
 import CurrentColorDrawer from "./components/CurrentColorDrawer/CurrentColorDrawer";
 import PreviousColorsDrawer from "./components/PreviousColorsDrawer/PreviousColorsDrawer";
 import FavoriteColorsDrawer from "./components/FavoriteColorsDrawer/FavoriteColorsDrawer";
@@ -43,7 +43,7 @@ function App() {
 					</>
 				)}
 			</div>
-			{/* //todo footer component comes here */}
+			<Footer />
 		</>
 	);
 }
