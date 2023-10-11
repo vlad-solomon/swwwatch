@@ -9,6 +9,7 @@ import PreviousColorsDrawer from "./components/PreviousColorsDrawer/PreviousColo
 import FavoriteColorsDrawer from "./components/FavoriteColorsDrawer/FavoriteColorsDrawer";
 import PaletteDrawer from "./components/PaletteDrawer/PaletteDrawer";
 import { Toaster } from "react-hot-toast";
+import { useEffect } from "react";
 
 const drawers = {
 	color: CurrentColorDrawer,
@@ -22,6 +23,12 @@ const drawers = {
 function App() {
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
 	const SelectedDrawerComponent = drawers[selectedDrawer];
+	const body = document.querySelector("body");
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		body.style.overflow = selectedDrawer !== null ? "hidden" : "auto";
+	}, [selectedDrawer]);
 
 	return (
 		<>
