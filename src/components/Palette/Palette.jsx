@@ -20,3 +20,5 @@ const Palette = forwardRef(({ palette }, ref) => {
 export default Palette;
 
 //todo style the palette drawer to look better
+//todo add animations
+//todo add pattern background?

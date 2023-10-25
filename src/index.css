@@ -47,6 +47,16 @@ a:link {
 	text-decoration: none;
 	font-weight: var(--fw-semibold);
 }
+a::after {
+	content: "🡥";
+	margin-left: 4px;
+	display: inline-block;
+}
+
+a:hover::after {
+	rotate: 45deg;
+	transform: translateY(1px);
+}
 
 body {
 	margin: 0;

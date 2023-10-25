@@ -8,6 +8,7 @@ import { prominent } from "color.js";
 import useColorDrawer from "../../hooks/useColorDrawer";
 import { useDropzone } from "react-dropzone";
 import useLoadImage from "../../hooks/useLoadImage";
+import Logo from "../../assets/img/logo.svg";
 
 function Image() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
@@ -96,6 +97,15 @@ function Image() {
 				<input {...getInputProps()} />
 				<img src={Welcome} alt="welcome" />
 				<span>Paste or drag and drop your image here</span>
+			</div>
+			<div className="image__branding">
+				<img src={Logo} />
+				<span>
+					created by{" "}
+					<a href="https://github.com/vlad-solomon" target="_blank" referrerPolicy="no-referrer">
+						Vlad Solomon
+					</a>
+				</span>
 			</div>
 		</div>
 	);

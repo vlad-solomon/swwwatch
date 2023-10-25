@@ -1,15 +1,13 @@
-import "./App.css";
+import "./App.scss";
 import { useStore } from "./stores/useStore";
 import Image from "./components/Image/Image";
 import Nav from "./components/Nav/Nav";
 import Overlay from "./components/Overlay/Overlay";
-import Footer from "./components/Footer/Footer";
 import CurrentColorDrawer from "./components/CurrentColorDrawer/CurrentColorDrawer";
 import PreviousColorsDrawer from "./components/PreviousColorsDrawer/PreviousColorsDrawer";
 import FavoriteColorsDrawer from "./components/FavoriteColorsDrawer/FavoriteColorsDrawer";
 import PaletteDrawer from "./components/PaletteDrawer/PaletteDrawer";
 import { Toaster } from "react-hot-toast";
-import { useEffect } from "react";
 
 const drawers = {
 	color: CurrentColorDrawer,
@@ -23,12 +21,6 @@ const drawers = {
 function App() {
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
 	const SelectedDrawerComponent = drawers[selectedDrawer];
-	const body = document.querySelector("body");
-
-	useEffect(() => {
-		window.scrollTo(0, 0);
-		body.style.overflow = selectedDrawer !== null ? "hidden" : "auto";
-	}, [selectedDrawer]);
 
 	return (
 		<>
@@ -50,7 +42,6 @@ function App() {
 					</>
 				)}
 			</div>
-			<Footer />
 		</>
 	);
 }

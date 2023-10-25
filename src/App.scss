@@ -10,4 +10,7 @@
 	flex-direction: column;
 	gap: 10px;
 	min-width: 320px;
+	@media (min-width: 1000px) {
+		flex-direction: row;
+	}
 }
