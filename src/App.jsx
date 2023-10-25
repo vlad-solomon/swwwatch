@@ -47,3 +47,5 @@ function App() {
 }
 
 export default App;
+
+//todo check if meta tags work

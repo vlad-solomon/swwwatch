@@ -44,3 +44,14 @@
 		}
 	}
 }
+
+#tutorial {
+	display: none;
+	@media (min-width: 1000px) {
+		display: block;
+		position: absolute;
+		top: 80px;
+		right: 150px;
+		pointer-events: none;
+	}
+}
