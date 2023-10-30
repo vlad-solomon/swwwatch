@@ -26,6 +26,7 @@
 			background-color: var(--white-text);
 			border-radius: 10px 10px 0 0;
 			opacity: 0;
+			transition: var(--transition);
 		}
 		&:not(.nav__option--active):hover {
 			&::before {

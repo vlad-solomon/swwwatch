@@ -18,6 +18,8 @@
 
 	--border-radius: 5px;
 
+	--transition: 100ms cubic-bezier(0.21, 1.02, 0.73, 1);
+
 	font-family: "Inter", sans-serif;
 	line-height: 1.5;
 	font-size: var(--fs-r);
@@ -51,11 +53,11 @@ a::after {
 	content: "🡥";
 	margin-left: 4px;
 	display: inline-block;
+	transition: var(--transition);
 }
 
 a:hover::after {
-	rotate: 45deg;
-	transform: translateY(1px);
+	transform: translateY(-2px);
 }
 
 body {

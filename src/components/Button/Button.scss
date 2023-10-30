@@ -5,6 +5,7 @@
 	border-radius: var(--border-radius);
 	gap: 10px;
 	cursor: pointer;
+	transition: var(--transition);
 	&--wide {
 		background-color: var(--gray-600);
 		height: 45px;

@@ -42,6 +42,7 @@
 		height: 100%;
 		width: 100%;
 		flex-direction: column;
+		transition: var(--transition);
 		&::after {
 			content: "";
 			position: absolute;
@@ -53,12 +54,17 @@
 			height: 100%;
 			width: 100%;
 			background: radial-gradient(transparent, rgba(255, 255, 255, 0.04));
+			transition: var(--transition);
 		}
 		&:hover::after {
 			opacity: 1;
 		}
+		&:hover,
 		&--is-drag {
 			scale: 1.1;
+			&::after {
+				opacity: 1;
+			}
 		}
 		&::before {
 			content: "";
@@ -104,7 +110,7 @@
 	}
 	&__branding {
 		position: absolute;
-		bottom: 10px;
+		bottom: 0;
 		display: flex;
 		z-index: 1;
 		justify-content: center;
@@ -112,6 +118,7 @@
 		width: 100%;
 		font-weight: var(--fw-regular);
 		opacity: 0.8;
+		padding-bottom: 10px;
 		img {
 			height: 1.25em;
 			margin-right: 5px;

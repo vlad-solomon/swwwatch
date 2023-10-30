@@ -7,6 +7,7 @@ function Nav({ drawers }) {
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
 	const setSelectedDrawer = useStore((state) => state.setSelectedDrawer);
 	const [tutorial, setTutorial] = useState(true);
+	const getDrawerIcon = (icon) => new URL(`/src/assets/img/${icon}.svg`, import.meta.url).href;
 
 	return (
 		<>
@@ -20,7 +21,7 @@ function Nav({ drawers }) {
 							setSelectedDrawer(drawer === selectedDrawer ? null : drawer);
 						}}
 					>
-						<img src={new URL(`../../assets/img/${drawer === selectedDrawer ? `${drawer}-fill.svg` : `${drawer}.svg`}`, import.meta.url).href} />
+						<img src={drawer === selectedDrawer ? getDrawerIcon(`${drawer}-fill`) : getDrawerIcon(drawer)} />
 					</div>
 				))}
 			</div>
