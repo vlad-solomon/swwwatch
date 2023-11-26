@@ -33,12 +33,8 @@ function App() {
 			<div className="app">
 				<Image />
 				<Nav drawers={Object.keys(drawers)} />
-				{selectedDrawer && (
-					<>
-						<Overlay />
-						<SelectedDrawerComponent />
-					</>
-				)}
+				<Overlay />
+				{selectedDrawer && <SelectedDrawerComponent />}
 			</div>
 		</>
 	);

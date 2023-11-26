@@ -13,6 +13,7 @@
 		opacity: 1;
 	}
 	&__toggle {
+		transition: var(--transition);
 		cursor: pointer;
 		position: absolute;
 		z-index: 1;

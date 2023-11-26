@@ -2,6 +2,7 @@ import "./Nav.scss";
 import { useState } from "react";
 import { useStore } from "../../stores/useStore";
 import Tutorial from "../../assets/img/tutorial.svg";
+import { motion } from "framer-motion";
 
 function Nav({ drawers }) {
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
@@ -21,7 +22,9 @@ function Nav({ drawers }) {
 							setSelectedDrawer(drawer === selectedDrawer ? null : drawer);
 						}}
 					>
-						<img src={drawer === selectedDrawer ? getDrawerIcon(`${drawer}-fill`) : getDrawerIcon(drawer)} />
+						<motion.div className="nav__option--container" whileTap={{ scale: 0.8 }}>
+							{drawer === selectedDrawer ? <img src={getDrawerIcon(`${drawer}-fill`)} /> : <img src={getDrawerIcon(drawer)} />}
+						</motion.div>
 					</div>
 				))}
 			</div>
