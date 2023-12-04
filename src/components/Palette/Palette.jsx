@@ -1,11 +1,10 @@
 import "./Palette.scss";
-import { forwardRef } from "react";
 import ColorShades from "../ColorShades/ColorShades";
 import Logo from "../../assets/img/logo.svg";
 
-const Palette = forwardRef(({ palette }, ref) => {
+function Palette({ palette, paletteRef }) {
 	return (
-		<div className="palette" ref={ref}>
+		<div className="palette" ref={paletteRef}>
 			<ColorShades shades={palette} isColorCode={true} />
 			<div className="palette__footer">
 				<div className="palette__branding">
@@ -15,7 +14,7 @@ const Palette = forwardRef(({ palette }, ref) => {
 			</div>
 		</div>
 	);
-});
+}
 
 export default Palette;
 

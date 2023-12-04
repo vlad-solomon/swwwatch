@@ -36,7 +36,7 @@ export default function PaletteDrawer() {
 
 	return uploadedImage.img ? (
 		<>
-			<Palette palette={palette} ref={paletteRef} />
+			<Palette palette={palette} paletteRef={paletteRef} />
 			<Drawer modifier="palette">
 				<ColorShades shades={palette} onClick={(color) => setColorDrawer(color)} />
 				<Button text="Download" icon={Download} onClick={handleDownload} />
