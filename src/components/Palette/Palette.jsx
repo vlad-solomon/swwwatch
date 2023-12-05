@@ -9,7 +9,7 @@ function Palette({ palette, paletteRef }) {
 			<div className="palette__footer">
 				<div className="palette__branding">
 					<img src={Logo} alt="logo" />
-					<span>vlad-solomon.github.io/swwwatch.me</span>
+					<span>vlad-solomon.github.io/swwwatch</span>
 				</div>
 			</div>
 		</div>

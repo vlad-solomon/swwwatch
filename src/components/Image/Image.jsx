@@ -5,8 +5,6 @@ import ImageWelcome from "../ImageWelcome/ImageWelcome";
 import ImageColorPick from "../ImageColorPick/ImageColorPick";
 import { motion } from "framer-motion";
 
-//todo rebrand
-
 function Image() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
 	const containerRef = useRef();
