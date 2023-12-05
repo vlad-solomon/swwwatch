@@ -6,6 +6,11 @@
 	flex: 1 0 0;
 	border-radius: var(--border-radius);
 	overflow: hidden;
+	&__inner {
+		outline: 1px solid red;
+		height: 100%;
+		width: 100%;
+	}
 	&__clear {
 		top: -4px;
 		right: -4px;

@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { useStore } from "../../stores/useStore";
 import ImageWelcome from "../ImageWelcome/ImageWelcome";
 import ImageColorPick from "../ImageColorPick/ImageColorPick";
+import { motion } from "framer-motion";
 
 //todo rebrand
 
@@ -33,7 +34,9 @@ function Image() {
 
 	return (
 		<div className="image" ref={containerRef}>
-			{!uploadedImage.img ? <ImageWelcome /> : <ImageColorPick />}
+			<motion.div className="image__inner" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key={uploadedImage.img}>
+				{!uploadedImage.img ? <ImageWelcome /> : <ImageColorPick />}
+			</motion.div>
 		</div>
 	);
 }
