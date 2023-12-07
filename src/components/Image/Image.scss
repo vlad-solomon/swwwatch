@@ -1,5 +1,14 @@
 .image {
-	position: relative;
+	&__wrapper {
+		position: relative;
+		display: flex;
+		flex: 1;
+	}
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	display: flex;
 	border: 2px dashed rgba(255, 255, 255, 0.15);
 	border: 4px solid var(--gray-400);

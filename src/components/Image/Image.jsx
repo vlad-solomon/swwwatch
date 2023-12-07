@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { useStore } from "../../stores/useStore";
 import ImageWelcome from "../ImageWelcome/ImageWelcome";
 import ImageColorPick from "../ImageColorPick/ImageColorPick";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Image() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
@@ -21,20 +21,22 @@ function Image() {
 
 	useEffect(() => {
 		handleResize(uploadedImage.height, uploadedImage.width);
-
 		window.addEventListener("resize", () => {
 			handleResize(uploadedImage.height, uploadedImage.width);
 		});
+
 		return () => {
 			window.removeEventListener("resize", handleResize);
 		};
 	}, [uploadedImage.img]);
 
 	return (
-		<div className="image" ref={containerRef}>
-			<motion.div className="image__inner" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key={uploadedImage.img}>
-				{!uploadedImage.img ? <ImageWelcome /> : <ImageColorPick />}
-			</motion.div>
+		<div className="image__wrapper" ref={containerRef}>
+			<AnimatePresence>
+				<motion.div className={`image ${!uploadedImage.img ? "image--welcome" : ""}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key={uploadedImage.img}>
+					{!uploadedImage.img ? <ImageWelcome /> : <ImageColorPick />}
+				</motion.div>
+			</AnimatePresence>
 		</div>
 	);
 }
