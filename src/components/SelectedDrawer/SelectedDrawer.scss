@@ -1,0 +1,22 @@
+.drawer__wrapper {
+	position: absolute;
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+	bottom: 60px;
+	left: 10px;
+	right: 10px;
+	max-height: 480px;
+	z-index: 1;
+	background-color: var(--gray-500);
+	overflow: hidden;
+	@media (min-width: 1000px) {
+		left: unset;
+		top: 60px;
+		right: 10px;
+		width: 400px;
+		border-radius: 0 0 var(--border-radius) var(--border-radius);
+		max-height: 360px;
+		box-shadow: inset 0 5px 10px 2px rgba(0, 0, 0, 0.08);
+	}
+}
+
+//todo look at drawer's heights on desktop media
