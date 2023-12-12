@@ -1,8 +1,17 @@
 import "./Drawer.scss";
+import { useStore } from "../../stores/useStore";
+import { motion } from "framer-motion";
 
 function Drawer({ children, modifier = "empty" }) {
+	const selectedDrawer = useStore((state) => state.selectedDrawer);
+
+	//todo check bug when closing drawer
 	return (
-		<div
+		<motion.div
+			key={selectedDrawer}
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
 			className={`drawer ${modifier && `drawer--${modifier}`}`}
 			onScroll={() => {
 				for (const popper of document.querySelectorAll("div[data-tippy-root]")) {
@@ -12,7 +21,7 @@ function Drawer({ children, modifier = "empty" }) {
 			}}
 		>
 			{children}
-		</div>
+		</motion.div>
 	);
 }
 
