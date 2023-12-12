@@ -13,8 +13,6 @@ function ColorDetail({ type, values, pretty }) {
 		transition: { duration: 0.5 },
 	};
 
-	console.log(values);
-
 	return (
 		<div className="color-detail__wrapper">
 			<div className="color-detail">

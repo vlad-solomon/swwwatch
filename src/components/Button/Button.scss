@@ -6,11 +6,11 @@
 	gap: 10px;
 	cursor: pointer;
 	transition: var(--transition);
-	// & > span {
-	// 	display: flex;
-	// 	align-items: center;
-	// 	gap: 10px;
-	// }
+	& > span {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
 	&--wide {
 		background-color: var(--gray-600);
 		height: 45px;

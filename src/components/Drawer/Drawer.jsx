@@ -6,6 +6,8 @@ function Drawer({ children, modifier = "empty" }) {
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
 
 	//todo check bug when closing drawer
+	//* animate={{ opacity: selectedDrawer ? 1 : 0 }}
+
 	return (
 		<motion.div
 			key={selectedDrawer}
