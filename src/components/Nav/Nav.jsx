@@ -13,7 +13,7 @@ function Nav({ drawers }) {
 	return (
 		<>
 			<div className={`nav ${selectedDrawer ? "nav--drawer-open" : ""}`}>
-				{drawers.map((drawer) => (
+				{Object.keys(drawers).map((drawer) => (
 					<div
 						key={`${drawer}-drawer}`}
 						className={`nav__option ${drawer === selectedDrawer ? "nav__option--active" : ""}`}

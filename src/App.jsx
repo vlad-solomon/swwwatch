@@ -3,21 +3,11 @@ import Image from "./components/Image/Image";
 import Nav from "./components/Nav/Nav";
 import Overlay from "./components/Overlay/Overlay";
 import SelectedDrawer from "./components/SelectedDrawer/SelectedDrawer";
-import CurrentColorDrawer from "./components/CurrentColorDrawer/CurrentColorDrawer";
-import PreviousColorsDrawer from "./components/PreviousColorsDrawer/PreviousColorsDrawer";
-import FavoriteColorsDrawer from "./components/FavoriteColorsDrawer/FavoriteColorsDrawer";
-import PaletteDrawer from "./components/PaletteDrawer/PaletteDrawer";
 import { Toaster } from "react-hot-toast";
-
-//todo useDrawers hook?
-const drawers = {
-	color: CurrentColorDrawer,
-	favorite: FavoriteColorsDrawer,
-	previous: PreviousColorsDrawer,
-	palette: PaletteDrawer,
-};
+import useDrawers from "./hooks/useDrawers";
 
 function App() {
+	const drawers = useDrawers();
 	return (
 		<>
 			<Toaster
@@ -29,10 +19,10 @@ function App() {
 				}}
 			/>
 			<div className="app">
-				<Image />
-				<Nav drawers={Object.keys(drawers)} />
 				<Overlay />
+				<Image />
 				<SelectedDrawer drawers={drawers} />
+				<Nav drawers={drawers} />
 			</div>
 		</>
 	);
