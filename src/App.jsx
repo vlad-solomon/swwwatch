@@ -8,6 +8,7 @@ import PreviousColorsDrawer from "./components/PreviousColorsDrawer/PreviousColo
 import FavoriteColorsDrawer from "./components/FavoriteColorsDrawer/FavoriteColorsDrawer";
 import PaletteDrawer from "./components/PaletteDrawer/PaletteDrawer";
 import { Toaster } from "react-hot-toast";
+import { motion, AnimatePresence } from "framer-motion";
 
 const drawers = {
 	color: CurrentColorDrawer,
@@ -30,11 +31,19 @@ function App() {
 					duration: 1500,
 				}}
 			/>
+			<span style={{ position: "fixed", zIndex: "99", right: 0 }}>{JSON.stringify(selectedDrawer)}</span>
 			<div className="app">
 				<Image />
 				<Nav drawers={Object.keys(drawers)} />
 				<Overlay />
-				{selectedDrawer && <SelectedDrawerComponent />}
+				{/* //todo wrap this into a component DrawerWrapper || DrawerController */}
+				<AnimatePresence>
+					{selectedDrawer && (
+						<motion.div className="drawer__wrapper" initial={{ height: 0 }} animate={{ height: selectedDrawer ? "auto" : 0 }} exit={{ height: 0 }}>
+							{selectedDrawer && <SelectedDrawerComponent />}
+						</motion.div>
+					)}
+				</AnimatePresence>
 			</div>
 		</>
 	);
