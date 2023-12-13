@@ -32,3 +32,4 @@ export default App;
 
 //todo check if meta tags work
 //todo check how i would animate text change when clicking a button and changing its state
+//todo implement shimmer effect when data is changing
