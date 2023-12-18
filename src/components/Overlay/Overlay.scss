@@ -8,11 +8,13 @@
 	bottom: 0;
 	position: fixed;
 	z-index: 2;
-	// z-index: 9999;
 	height: 100vh;
 	width: 100vw;
 	background-color: rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(10px);
+	&--open {
+		z-index: 9999;
+	}
 	@media (min-width: 1000px) {
 		display: none;
 	}

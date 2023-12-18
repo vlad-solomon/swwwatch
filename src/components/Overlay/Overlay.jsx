@@ -27,7 +27,7 @@ export default function Overlay({ children }) {
 		<AnimatePresence>
 			{selectedDrawer && (
 				<motion.div
-					className="overlay"
+					className={`overlay ${modal ? "overlay--open" : ""}`}
 					onClick={() => {
 						setSelectedDrawer(null);
 						setSelectedModal(null);
