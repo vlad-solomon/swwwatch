@@ -4,10 +4,10 @@ import Nav from "./components/Nav/Nav";
 import Overlay from "./components/Overlay/Overlay";
 import SelectedDrawer from "./components/SelectedDrawer/SelectedDrawer";
 import { Toaster } from "react-hot-toast";
-import useDrawers from "./hooks/useDrawers";
+
+// todo useToasterSettings?
 
 function App() {
-	const drawers = useDrawers();
 	return (
 		<>
 			<Toaster

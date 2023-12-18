@@ -9,16 +9,19 @@ const buttonCVA = cva("button", {
 			wide: "button--wide",
 			square: "button--square",
 		},
+		intent: {
+			secondary: "button--secondary",
+		},
 	},
 	defaultVariants: {
 		shape: "wide",
 	},
 });
 
-function Button({ text, shape, icon, tooltip, onClick }) {
+function Button({ text, shape, intent, icon, tooltip, onClick }) {
 	return (
 		<Tooltip disabled={!tooltip} content={tooltip}>
-			<motion.div whileTap={{ scale: shape === "square" ? 0.8 : 0.95 }} className={buttonCVA({ shape })} onClick={onClick}>
+			<motion.div whileTap={{ scale: shape === "square" ? 0.8 : 0.95 }} className={buttonCVA({ shape, intent })} onClick={onClick}>
 				<motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} key={text}>
 					{icon && <img src={icon} />}
 					{text}

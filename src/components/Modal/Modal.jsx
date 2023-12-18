@@ -13,3 +13,8 @@ export default function Modal({ head = "Modal head", content = "Modal content", 
 		</div>
 	);
 }
+
+// <Modal head="Remove previous colors" content="You are about to clear all your previously selected colors. This action is permanent and cannot be undone. Are you sure?">
+// 	<Button text="Remove" onClick={() => console.log("remove all colors")} />
+// 	<Button text="Cancel" intent="secondary" onClick={() => console.log("dismiss")} />
+// </Modal>;

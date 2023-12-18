@@ -31,4 +31,13 @@
 			background-color: var(--gray-600);
 		}
 	}
+	&--secondary {
+		background-color: unset;
+		&:hover {
+			background-color: unset;
+			span {
+				text-decoration: underline;
+			}
+		}
+	}
 }
