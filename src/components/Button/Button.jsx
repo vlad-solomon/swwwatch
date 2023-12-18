@@ -19,7 +19,7 @@ function Button({ text, shape, icon, tooltip, onClick }) {
 	return (
 		<Tooltip disabled={!tooltip} content={tooltip}>
 			<motion.div whileTap={{ scale: shape === "square" ? 0.8 : 0.95 }} className={buttonCVA({ shape })} onClick={onClick}>
-				<motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key={text}>
+				<motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} key={text}>
 					{icon && <img src={icon} />}
 					{text}
 				</motion.span>

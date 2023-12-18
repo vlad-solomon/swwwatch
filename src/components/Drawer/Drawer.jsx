@@ -13,7 +13,7 @@ function Drawer({ children, modifier = "empty" }) {
 			key={selectedDrawer}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
+			// exit={{ opacity: 0 }}
 			className={`drawer ${modifier && `drawer--${modifier}`}`}
 			onScroll={() => {
 				for (const popper of document.querySelectorAll("div[data-tippy-root]")) {
