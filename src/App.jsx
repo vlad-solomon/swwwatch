@@ -21,8 +21,8 @@ function App() {
 			<div className="app">
 				<Overlay />
 				<Image />
-				<SelectedDrawer drawers={drawers} />
-				<Nav drawers={drawers} />
+				<SelectedDrawer />
+				<Nav />
 			</div>
 		</>
 	);

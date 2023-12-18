@@ -1,8 +1,10 @@
 import "./SelectedDrawer.scss";
 import { motion, AnimatePresence } from "framer-motion";
 import { useStore } from "../../stores/useStore";
+import useDrawers from "../../hooks/useDrawers";
 
-export default function SelectedDrawer({ drawers }) {
+export default function SelectedDrawer() {
+	const drawers = useDrawers();
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
 	const SelectedDrawerComponent = drawers[selectedDrawer];
 

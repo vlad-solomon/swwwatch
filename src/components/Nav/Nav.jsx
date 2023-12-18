@@ -3,8 +3,10 @@ import { useState } from "react";
 import { useStore } from "../../stores/useStore";
 import Tutorial from "../../assets/img/tutorial.svg";
 import { motion } from "framer-motion";
+import useDrawers from "../../hooks/useDrawers";
 
-function Nav({ drawers }) {
+function Nav() {
+	const drawers = useDrawers();
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
 	const setSelectedDrawer = useStore((state) => state.setSelectedDrawer);
 	const [tutorial, setTutorial] = useState(true);
