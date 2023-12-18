@@ -12,6 +12,7 @@
 		gap: 10px;
 	}
 	&--wide {
+		flex: 1;
 		background-color: var(--gray-600);
 		height: 45px;
 		img {

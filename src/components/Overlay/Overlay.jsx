@@ -3,7 +3,7 @@ import { useStore } from "../../stores/useStore";
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Overlay() {
+export default function Overlay({ children }) {
 	const setSelectedDrawer = useStore((state) => state.setSelectedDrawer);
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
 
@@ -19,18 +19,19 @@ export default function Overlay() {
 		};
 	}, []);
 
-	return (
-		<AnimatePresence>
-			{selectedDrawer && (
-				<motion.div
-					className="overlay"
-					onClick={() => setSelectedDrawer(null)}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					exit={{ opacity: 0 }}
-					transition={{ duration: 0.15 }}
-				></motion.div>
-			)}
-		</AnimatePresence>
-	);
+	// return (
+	// 	<AnimatePresence>
+	// 		{/* {selectedDrawer && ( */}
+	// 		<motion.div
+	// 			className="overlay"
+	// 			onClick={() => setSelectedDrawer(null)}
+	// 			initial={{ opacity: 0 }}
+	// 			animate={{ opacity: 1 }}
+	// 			exit={{ opacity: 0 }}
+	// 			transition={{ duration: 0.15 }}
+	// 		></motion.div>
+	// 		{/* )} */}
+	// 	</AnimatePresence>
+	// );
+	return <div className="overlay">{children}</div>;
 }
