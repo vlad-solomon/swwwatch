@@ -4,17 +4,18 @@ import ColorSquare from "../ColorSquare/ColorSquare";
 import { useFavorite } from "../../stores/useFavorites";
 import Favorite from "../../assets/img/favorite.svg";
 import Button from "../../components/Button/Button";
+import { useStore } from "../../stores/useStore";
 
 export default function FavoriteColorsDrawer() {
 	const favorites = useFavorite((state) => state.favorites);
-	const clearFavorites = useFavorite((state) => state.clearFavorites);
+	const setSelectedModal = useStore((state) => state.setSelectedModal);
 
 	return favorites.length ? (
 		<Drawer modifier="favorite-colors">
 			{favorites.map((color) => (
 				<ColorSquare key={`favorite-${color}`} color={color} />
 			))}
-			<Button shape="square" text="R" onClick={clearFavorites} />
+			<Button shape="square" text="R" onClick={() => setSelectedModal("favorites")} />
 		</Drawer>
 	) : (
 		<Drawer>

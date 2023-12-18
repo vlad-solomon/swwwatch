@@ -9,6 +9,7 @@ function Nav() {
 	const drawers = useDrawers();
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
 	const setSelectedDrawer = useStore((state) => state.setSelectedDrawer);
+	const setSelectedModal = useStore((state) => state.setSelectedModal);
 	const [tutorial, setTutorial] = useState(true);
 	const getDrawerIcon = (icon) => new URL(`/src/assets/img/${icon}.svg`, import.meta.url).href;
 
@@ -22,6 +23,7 @@ function Nav() {
 						onClick={() => {
 							setTutorial(false);
 							setSelectedDrawer(drawer === selectedDrawer ? null : drawer);
+							setSelectedModal(null);
 						}}
 					>
 						<motion.div className="nav__option--container" whileTap={{ scale: 0.8 }}>

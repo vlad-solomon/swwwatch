@@ -16,5 +16,7 @@ export const useStore = create(
 			get().setSelectedColor(null);
 			get().setPalette([]);
 		},
+		selectedModal: null,
+		setSelectedModal: (selectedModal) => set({ selectedModal }),
 	}))
 );

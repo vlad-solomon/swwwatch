@@ -1,20 +1,20 @@
 import "./Modal.scss";
+import Button from "../Button/Button";
 
 //todo fade out (and shrink) the other button when one of them is hovered
 
-export default function Modal({ head = "Modal head", content = "Modal content", children }) {
+export default function Modal({ head = "Modal head", content = "Modal content", controls }) {
 	return (
 		<div className="modal">
 			<div className="modal__head">{head}</div>
 			<div className="modal__body">
 				<span className="modal__content">{content}</span>
-				<div className="modal__controls">{children}</div>
+				<div className="modal__controls">
+					{controls?.map(({ text, onClick, intent }) => (
+						<Button key={text} text={text} onClick={onClick} intent={intent} />
+					))}
+				</div>
 			</div>
 		</div>
 	);
 }
-
-// <Modal head="Remove previous colors" content="You are about to clear all your previously selected colors. This action is permanent and cannot be undone. Are you sure?">
-// 	<Button text="Remove" onClick={() => console.log("remove all colors")} />
-// 	<Button text="Cancel" intent="secondary" onClick={() => console.log("dismiss")} />
-// </Modal>;
