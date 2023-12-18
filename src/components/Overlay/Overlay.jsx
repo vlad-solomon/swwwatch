@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import useModal from "../../hooks/useModal";
 
-export default function Overlay({ children }) {
+export default function Overlay() {
 	const selectedDrawer = useStore((state) => state.selectedDrawer);
 	const setSelectedDrawer = useStore((state) => state.setSelectedDrawer);
 	const setSelectedModal = useStore((state) => state.setSelectedModal);
