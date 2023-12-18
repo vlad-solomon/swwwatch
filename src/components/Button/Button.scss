@@ -12,7 +12,7 @@
 		gap: 10px;
 	}
 	&--wide {
-		flex: 1;
+		flex: 1; //todo fix: adding this made some of the buttons collapse
 		background-color: var(--gray-600);
 		height: 45px;
 		img {
