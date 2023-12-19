@@ -20,7 +20,7 @@ export default function Modal({ head = "Modal head", content = "Modal content", 
 								key={text}
 								text={text}
 								onClick={() => {
-									onClick();
+									onClick && onClick();
 									setSelectedModal(null);
 									setSelectedDrawer(null);
 								}}

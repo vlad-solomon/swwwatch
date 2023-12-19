@@ -15,7 +15,7 @@ export default function FavoriteColorsDrawer() {
 			{favorites.map((color) => (
 				<ColorSquare key={`favorite-${color}`} color={color} />
 			))}
-			<Button shape="square" text="R" onClick={() => setSelectedModal("favorites")} />
+			<Button shape="square" intent="secondary" text="R" onClick={() => setSelectedModal("favorites")} />
 		</Drawer>
 	) : (
 		<Drawer>

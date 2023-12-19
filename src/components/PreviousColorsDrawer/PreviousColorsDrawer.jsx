@@ -17,7 +17,7 @@ export default function PreviousColorsDrawer() {
 			{previous.map((color) => (
 				<ColorSquare key={`previous-${color}`} color={color} />
 			))}
-			<Button shape="square" text="R" onClick={() => setSelectedModal("previous")} />
+			<Button shape="square" text="R" intent="secondary" onClick={() => setSelectedModal("previous")} />
 		</Drawer>
 	) : (
 		<Drawer>
