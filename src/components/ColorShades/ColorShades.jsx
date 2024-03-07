@@ -5,7 +5,7 @@ import { useStore } from "../../stores/useStore";
 import useContrast from "../../hooks/useContrast";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ColorShades({ shades, isMatching, isToggle, isColorCode, onClick }) {
+export default function ColorShades({ shades, alignColorCode = "bottom", isMatching, isToggle, isColorCode, onClick }) {
 	const selectedColor = useStore((state) => state.selectedColor);
 	const [isGradient, setIsGradient] = useState(false);
 
@@ -13,7 +13,11 @@ export default function ColorShades({ shades, isMatching, isToggle, isColorCode,
 		<div className="color-shades">
 			{shades?.map((color, index) => (
 				<Tooltip key={index} content={color}>
-					<div className={`color-shades__shade ${color === selectedColor ? isMatching : ""}`} style={{ backgroundColor: color }} onClick={() => onClick(color)}>
+					<div
+						className={`color-shades__shade ${color === selectedColor ? isMatching : ""} color-shades__shade--align-${alignColorCode}`}
+						style={{ backgroundColor: color }}
+						onClick={() => onClick(color)}
+					>
 						{isColorCode && <span style={{ color: useContrast(color) }}>{color}</span>}
 					</div>
 				</Tooltip>

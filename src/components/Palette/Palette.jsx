@@ -1,16 +1,12 @@
 import "./Palette.scss";
 import ColorShades from "../ColorShades/ColorShades";
-import Logo from "../../assets/img/logo.svg";
 
 function Palette({ palette, paletteRef }) {
 	return (
 		<div className="palette" ref={paletteRef}>
-			<ColorShades shades={palette} isColorCode={true} />
-			<div className="palette__footer">
-				<div className="palette__branding">
-					<img src={Logo} alt="logo" />
-					<span>vlad-solomon.github.io/swwwatch</span>
-				</div>
+			<ColorShades shades={palette} isColorCode={true} alignColorCode="top" />
+			<div className="palette__branding">
+				<span>{window.location.hostname + window.location.pathname.slice(0, -1)}</span>
 			</div>
 		</div>
 	);
@@ -19,5 +15,3 @@ function Palette({ palette, paletteRef }) {
 export default Palette;
 
 //todo style the palette drawer to look better
-//todo add animations
-//todo add pattern background?
