@@ -21,6 +21,3 @@ function App() {
 }
 
 export default App;
-
-//todo check if meta tags work
-//todo implement shimmer effect when data is changing

@@ -7,9 +7,6 @@ import Button from "../Button/Button";
 import { useStore } from "../../stores/useStore";
 import Clear from "../../assets/img/Clear.svg";
 
-// todo splash: https://res.cloudinary.com/dbkhowucg/image/upload/v1709822711/swwwatch-splash.png
-//todo add icons to clear buttons
-
 export default function PreviousColorsDrawer() {
 	const previous = usePrevious((state) => state.previous);
 	const setSelectedModal = useStore((state) => state.setSelectedModal);
