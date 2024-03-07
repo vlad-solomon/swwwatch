@@ -5,7 +5,9 @@ import Previous from "../../assets/img/previous.svg";
 import { usePrevious } from "../../stores/usePrevious";
 import Button from "../Button/Button";
 import { useStore } from "../../stores/useStore";
+import Clear from "../../assets/img/Clear.svg";
 
+// todo splash: https://res.cloudinary.com/dbkhowucg/image/upload/v1709822711/swwwatch-splash.png
 //todo add icons to clear buttons
 
 export default function PreviousColorsDrawer() {
@@ -17,7 +19,7 @@ export default function PreviousColorsDrawer() {
 			{previous.map((color) => (
 				<ColorSquare key={`previous-${color}`} color={color} />
 			))}
-			<Button shape="square" text="R" intent="secondary" onClick={() => setSelectedModal("previous")} />
+			<Button shape="square" icon={Clear} intent="secondary" onClick={() => setSelectedModal("previous")} />
 		</Drawer>
 	) : (
 		<Drawer>

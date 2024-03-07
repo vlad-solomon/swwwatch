@@ -12,7 +12,7 @@
 		gap: 10px;
 	}
 	&--wide {
-		flex: 1; //todo fix: adding this made some of the buttons collapse
+		width: 100%;
 		background-color: var(--gray-600);
 		height: 45px;
 		img {
@@ -33,6 +33,7 @@
 	}
 	&--secondary {
 		background-color: unset;
+		opacity: 0.5;
 		&:hover {
 			background-color: unset;
 			span {

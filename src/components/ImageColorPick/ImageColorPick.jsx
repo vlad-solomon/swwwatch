@@ -5,8 +5,6 @@ import useColorDrawer from "../../hooks/useColorDrawer";
 import useColor from "../../hooks/useColor";
 import Close from "../../assets/img/close.svg";
 
-//todo ImageColorPick.scss is empty
-
 export default function ImageColorPick() {
 	const uploadedImage = useStore((state) => state.uploadedImage);
 	const clearUploadedImage = useStore((state) => state.clearUploadedImage);
