@@ -5,7 +5,7 @@ import { useFavorite } from "../../stores/useFavorites";
 import Favorite from "../../assets/img/favorite.svg";
 import Button from "../../components/Button/Button";
 import { useStore } from "../../stores/useStore";
-import Clear from "../../assets/img/Clear.svg";
+import Clear from "../../assets/img/clear.svg";
 
 export default function FavoriteColorsDrawer() {
 	const favorites = useFavorite((state) => state.favorites);

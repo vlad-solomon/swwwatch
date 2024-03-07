@@ -5,7 +5,7 @@ import Previous from "../../assets/img/previous.svg";
 import { usePrevious } from "../../stores/usePrevious";
 import Button from "../Button/Button";
 import { useStore } from "../../stores/useStore";
-import Clear from "../../assets/img/Clear.svg";
+import Clear from "../../assets/img/clear.svg";
 
 export default function PreviousColorsDrawer() {
 	const previous = usePrevious((state) => state.previous);
