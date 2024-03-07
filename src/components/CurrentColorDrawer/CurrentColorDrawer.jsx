@@ -13,9 +13,6 @@ import FavoriteFilled from "../../assets/img/favorite-fill.svg";
 import Favorite from "../../assets/img/favorite.svg";
 import Color from "../../assets/img/color.svg";
 
-// todo clean comments
-//todo persist data (and possibly offer a way to delete it)
-
 export default function CurrentColorDrawer() {
 	const selectedColor = useStore((state) => state.selectedColor);
 	const setSelectedColor = useStore((state) => state.setSelectedColor);

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import useModal from "../../hooks/useModal";
 
-//todo create isOverlay state to stop rendering the the overlay only if a drawer is open?
+//? create isOverlay state to stop rendering the the overlay only if a drawer is open?
 
 export default function Overlay() {
 	const selectedDrawer = useStore((state) => state.selectedDrawer);

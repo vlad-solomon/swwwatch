@@ -1,56 +1,16 @@
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
-export const useFavorite = create((set) => ({
-	favorites: [
-		"#fff",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-		,
-		"#222",
-	],
-	setFavorites: (color) => set((state) => ({ favorites: state.favorites.includes(color) ? [...state.favorites].filter((favorites) => favorites !== color) : [color, ...state.favorites] })),
-	clearFavorites: () => set(() => ({ favorites: [] })),
-}));
+export const useFavorite = create(
+	persist(
+		(set) => ({
+			favorites: [],
+			setFavorites: (color) => set((state) => ({ favorites: state.favorites.includes(color) ? [...state.favorites].filter((favorites) => favorites !== color) : [color, ...state.favorites] })),
+			clearFavorites: () => set(() => ({ favorites: [] })),
+		}),
+		{
+			name: "favorite-colors",
+			storage: createJSONStorage(() => localStorage),
+		}
+	)
+);

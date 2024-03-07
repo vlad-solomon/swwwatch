@@ -3,8 +3,6 @@ import Button from "../Button/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useStore } from "../../stores/useStore";
 
-//todo fade out (and shrink) the other button when one of them is hovered
-
 export default function Modal({ head = "Modal head", content = "Modal content", controls }) {
 	const setSelectedDrawer = useStore((state) => state.setSelectedDrawer);
 	const setSelectedModal = useStore((state) => state.setSelectedModal);
